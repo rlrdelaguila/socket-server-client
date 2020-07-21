@@ -76,8 +76,16 @@ begin
   begin
     if not sSocket.Active then
     begin
-      sSocket.Port := strtoint(edtPort.Text);
-      sSocket.Active := True;
+      try
+        sSocket.Port := strtoint(edtPort.Text);
+        try
+          sSocket.Active := True;
+        except
+          log('IP indisponível.', clRed);
+        end;
+      except
+        log(edtPort.Text + ' não é um inteiro válido.', clRed);
+      end;
     end
     else
     begin
@@ -89,7 +97,7 @@ begin
     end;
   end
   else
-    log('Error: Port error!', clRed);
+    log('Error: Porta não especificada!', clRed);
 end;
 
 procedure TfServer.FormCreate(Sender: TObject);
@@ -255,7 +263,8 @@ end;
 procedure TfServer.LimparLog2Click(Sender: TObject);
 begin
   reLog.Lines.SaveToFile(getCurrentDir + '\logServer.txt');
-  ShowMessage('Arquivo salvo como ''logServer.txt'' no mesmo diretório do programa');
+  ShowMessage
+    ('Arquivo salvo como ''logServer.txt'' no mesmo diretório do programa');
 end;
 
 procedure TfServer.log(str: String; color: TColor);

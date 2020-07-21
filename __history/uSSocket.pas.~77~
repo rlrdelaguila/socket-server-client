@@ -108,10 +108,10 @@ end;
 
 procedure TfServer.btnClientClick(Sender: TObject);
 begin
-  if Assigned(fCLient) then
-    fCLient.Free;
+  // if Assigned(fCLient) then
+  // fCLient.Free;
 
-  fCLient := TfCLient.Create(self);
+  fCLient := TfCLient.Create(nil);
   fCLient.Show;
 end;
 
@@ -196,7 +196,7 @@ end;
 procedure TfServer.sSocketClientError(Sender: TObject; Socket: TCustomWinSocket;
   ErrorEvent: TErrorEvent; var ErrorCode: Integer);
 begin
-  ShowMessage('OnClientError');
+  log('Error code: ' + ErrorCode.ToString, clRed);
 end;
 
 procedure TfServer.sSocketListen(Sender: TObject; Socket: TCustomWinSocket);
@@ -254,8 +254,8 @@ end;
 
 procedure TfServer.LimparLog2Click(Sender: TObject);
 begin
-  reLog.Lines.SaveToFile(getCurrentDir + '\log.txt');
-  ShowMessage('Arquivo salvo como ''log.txt'' no mesmo diretório do programa');
+  reLog.Lines.SaveToFile(getCurrentDir + '\logServer.txt');
+  ShowMessage('Arquivo salvo como ''logServer.txt'' no mesmo diretório do programa');
 end;
 
 procedure TfServer.log(str: String; color: TColor);

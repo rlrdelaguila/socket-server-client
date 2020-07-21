@@ -76,8 +76,12 @@ begin
   begin
     if not sSocket.Active then
     begin
-      sSocket.Port := strtoint(edtPort.Text);
-      sSocket.Active := True;
+      try
+        sSocket.Port := strtoint(edtPort.Text);
+        sSocket.Active := True;
+      except
+        log(edtPort.Text + ' não é um inteiro válido!', clRed);
+      end;
     end
     else
     begin
@@ -89,7 +93,7 @@ begin
     end;
   end
   else
-    log('Error: Port error!', clRed);
+    log('Error: Porta não especificada!', clRed);
 end;
 
 procedure TfServer.FormCreate(Sender: TObject);
@@ -108,12 +112,11 @@ end;
 
 procedure TfServer.btnClientClick(Sender: TObject);
 begin
-  if Assigned(fCLient) then
-    fCLient.Free;
+  // if Assigned(fCLient) then
+  // fCLient.Free;
 
-  fCLient := TfCLient.Create(self);
-  //fCLient.Show;
-  fClient.Release;
+  fCLient := TfCLient.Create(nil);
+  fCLient.Show;
 end;
 
 procedure TfServer.btnCloseClick(Sender: TObject);
@@ -197,7 +200,7 @@ end;
 procedure TfServer.sSocketClientError(Sender: TObject; Socket: TCustomWinSocket;
   ErrorEvent: TErrorEvent; var ErrorCode: Integer);
 begin
-  ShowMessage('OnClientError');
+  log('Error code: ' + ErrorCode.ToString, clRed);
 end;
 
 procedure TfServer.sSocketListen(Sender: TObject; Socket: TCustomWinSocket);
@@ -255,8 +258,9 @@ end;
 
 procedure TfServer.LimparLog2Click(Sender: TObject);
 begin
-  reLog.Lines.SaveToFile(getCurrentDir + '\log.txt');
-  ShowMessage('Arquivo salvo como ''log.txt'' no mesmo diretório do programa');
+  reLog.Lines.SaveToFile(getCurrentDir + '\logServer.txt');
+  ShowMessage
+    ('Arquivo salvo como ''logServer.txt'' no mesmo diretório do programa');
 end;
 
 procedure TfServer.log(str: String; color: TColor);
