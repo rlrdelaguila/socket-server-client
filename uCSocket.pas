@@ -87,7 +87,7 @@ procedure TfClient.btnMessage1Click(Sender: TObject);
 begin
   if cSocket.Active then
   begin
-    cSocket.Socket.SendText(edtMessage1.Text);
+    cSocket.Socket.SendText(AnsiString(edtMessage1.Text));
   end
   else
     log('Servidor desconectado!', clRed);
@@ -97,7 +97,7 @@ procedure TfClient.btnMessage2Click(Sender: TObject);
 begin
   if cSocket.Active then
   begin
-    cSocket.Socket.SendText(edtMessage2.Text);
+    cSocket.Socket.SendText(AnsiString(edtMessage2.Text));
   end
   else
     log('Servidor desconectado!', clRed);
@@ -107,7 +107,7 @@ procedure TfClient.btnMessage3Click(Sender: TObject);
 begin
   if cSocket.Active then
   begin
-    cSocket.Socket.SendText(edtMessage3.Text);
+    cSocket.Socket.SendText(AnsiString(edtMessage3.Text));
   end
   else
     log('Servidor desconectado!', clRed);

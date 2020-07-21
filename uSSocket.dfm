@@ -50,6 +50,7 @@ object fServer: TfServer
       Align = alTop
       Caption = 'Start'
       ImageIndex = 0
+      Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -142,6 +143,7 @@ object fServer: TfServer
       Height = 55
       Align = alTop
       Caption = 'Client'
+      Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -235,6 +237,7 @@ object fServer: TfServer
       Align = alBottom
       Caption = 'Exit'
       ImageIndex = 1
+      Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11

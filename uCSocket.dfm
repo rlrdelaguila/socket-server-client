@@ -62,6 +62,7 @@ object fClient: TfClient
       Height = 55
       Align = alBottom
       Caption = 'Close'
+      Flat = True
       Glyph.Data = {
         42090000424D4209000000000000420000002800000018000000180000000100
         20000300000000090000120B0000120B000000000000000000000000FF0000FF
@@ -149,6 +150,7 @@ object fClient: TfClient
       Height = 55
       Align = alTop
       Caption = 'Connect'
+      Flat = True
       Glyph.Data = {
         E2080000424DE208000000000000420000002800000018000000170000000100
         200003000000A0080000130B0000130B000000000000000000000000FF0000FF
