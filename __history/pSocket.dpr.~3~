@@ -1,0 +1,15 @@
+program pSocket;
+
+uses
+  Vcl.Forms,
+  uSSocket in 'uSSocket.pas' {fServer},
+  uCSocket in 'uCSocket.pas' {fClient};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfServer, fServer);
+  Application.Run;
+end.

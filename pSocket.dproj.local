@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2019/08/15 15:34:42.000.513,=C:\Users\raul.aguila\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/04/17 08:05:18.000.163,=C:\Users\raul.aguila\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/07/08 08:19:50.000.347,=C:\Users\raul.aguila\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/07/08 14:54:59.000.626,=C:\Users\raul.aguila\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/07/20 09:09:21.000.780,=C:\Users\raul.aguila\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/07/20 09:10:14.000.980,C:\Users\raul.aguila\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\raul.aguila\Desktop\backup\Delphi\TSocket\2.0\uSSocket.dfm</Transaction>
+    <Transaction>2020/07/20 09:10:14.000.980,C:\Users\raul.aguila\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\raul.aguila\Desktop\backup\Delphi\TSocket\2.0\uSSocket.pas</Transaction>
+    <Transaction>2020/07/20 09:10:21.000.041,C:\Users\raul.aguila\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\raul.aguila\Desktop\backup\Delphi\TSocket\2.0\pSocket.dproj</Transaction>
+    <Transaction>2020/07/20 09:10:26.000.150,=C:\Users\raul.aguila\Desktop\backup\Delphi\TSocket\2.0\Unit2.pas</Transaction>
+    <Transaction>2020/07/20 09:10:56.000.135,C:\Users\raul.aguila\Desktop\backup\Delphi\TSocket\2.0\Unit2.dfm=C:\Users\raul.aguila\Desktop\backup\Delphi\TSocket\2.0\uCSocket.dfm</Transaction>
+    <Transaction>2020/07/20 09:10:56.000.135,C:\Users\raul.aguila\Desktop\backup\Delphi\TSocket\2.0\Unit2.pas=C:\Users\raul.aguila\Desktop\backup\Delphi\TSocket\2.0\uCSocket.pas</Transaction>
+    <Transaction>2020/07/20 10:06:59.000.533,=C:\Users\raul.aguila\Desktop\backup\Delphi\TSocket\2.0\Unit1.pas</Transaction>
+    <Transaction>2020/07/20 10:07:39.000.417,C:\Users\raul.aguila\Desktop\backup\Delphi\TSocket\2.0\Unit1.dfm=C:\Users\raul.aguila\Desktop\backup\Delphi\TSocket\2.0\uSMessage.dfm</Transaction>
+    <Transaction>2020/07/20 10:07:39.000.417,C:\Users\raul.aguila\Desktop\backup\Delphi\TSocket\2.0\Unit1.pas=C:\Users\raul.aguila\Desktop\backup\Delphi\TSocket\2.0\uSMessage.pas</Transaction>
+    <Transaction>2020/07/20 10:07:48.000.115,=C:\Users\raul.aguila\Desktop\backup\Delphi\TSocket\2.0\Unit2.pas</Transaction>
+    <Transaction>2020/07/20 10:07:54.000.535,C:\Users\raul.aguila\Desktop\backup\Delphi\TSocket\2.0\Unit2.dfm=C:\Users\raul.aguila\Desktop\backup\Delphi\TSocket\2.0\uPLog.dfm</Transaction>
+    <Transaction>2020/07/20 10:07:54.000.535,C:\Users\raul.aguila\Desktop\backup\Delphi\TSocket\2.0\Unit2.pas=C:\Users\raul.aguila\Desktop\backup\Delphi\TSocket\2.0\uPLog.pas</Transaction>
+    <Transaction>2020/07/20 14:00:54.000.765,C:\Users\raul.aguila\Desktop\backup\Delphi\TSocket\2.0\uPLog.pas=</Transaction>
+  </Transactions>
+</BorlandProject>
