@@ -54,11 +54,12 @@ object fClient: TfClient
     Margins.Right = 1
     Margins.Bottom = 1
     Align = alLeft
+    BevelOuter = bvNone
     TabOrder = 1
     object btnClose: TSpeedButton
-      Left = 1
-      Top = 303
-      Width = 58
+      Left = 0
+      Top = 304
+      Width = 60
       Height = 55
       Align = alBottom
       Caption = 'Close'
@@ -141,12 +142,14 @@ object fClient: TfClient
         FF00FFFFFF00}
       Layout = blGlyphTop
       OnClick = btnCloseClick
+      ExplicitLeft = 1
       ExplicitTop = 336
+      ExplicitWidth = 58
     end
     object btnCon: TSpeedButton
-      Left = 1
-      Top = 1
-      Width = 58
+      Left = 0
+      Top = 0
+      Width = 60
       Height = 55
       Align = alTop
       Caption = 'Connect'
@@ -226,6 +229,9 @@ object fClient: TfClient
         000000000000}
       Layout = blGlyphTop
       OnClick = btnConClick
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitWidth = 58
     end
   end
   object Panel2: TPanel
@@ -239,11 +245,12 @@ object fClient: TfClient
     Margins.Right = 1
     Margins.Bottom = 1
     Align = alClient
+    BevelOuter = bvNone
     TabOrder = 2
     object GroupBox1: TGroupBox
-      Left = 1
-      Top = 1
-      Width = 573
+      Left = 0
+      Top = 0
+      Width = 575
       Height = 55
       Margins.Left = 1
       Margins.Top = 1
@@ -252,6 +259,9 @@ object fClient: TfClient
       Align = alTop
       Caption = 'Server Config'
       TabOrder = 0
+      ExplicitLeft = 1
+      ExplicitTop = 1
+      ExplicitWidth = 573
       object Label1: TLabel
         Left = 76
         Top = 22
@@ -284,9 +294,9 @@ object fClient: TfClient
       end
     end
     object GroupBox2: TGroupBox
-      Left = 1
-      Top = 269
-      Width = 573
+      Left = 0
+      Top = 270
+      Width = 575
       Height = 89
       Margins.Left = 1
       Margins.Top = 1
@@ -295,11 +305,14 @@ object fClient: TfClient
       Align = alBottom
       Caption = 'Messages'
       TabOrder = 1
+      ExplicitLeft = 1
+      ExplicitTop = 269
+      ExplicitWidth = 573
       object Panel3: TPanel
         AlignWithMargins = True
         Left = 3
         Top = 16
-        Width = 450
+        Width = 452
         Height = 70
         Margins.Left = 1
         Margins.Top = 1
@@ -311,11 +324,12 @@ object fClient: TfClient
         BevelOuter = bvNone
         ShowCaption = False
         TabOrder = 0
+        ExplicitWidth = 450
         object edtMessage1: TEdit
           AlignWithMargins = True
           Left = 0
           Top = 0
-          Width = 450
+          Width = 452
           Height = 21
           Margins.Left = 0
           Margins.Top = 0
@@ -323,12 +337,13 @@ object fClient: TfClient
           Margins.Bottom = 1
           Align = alTop
           TabOrder = 0
+          ExplicitWidth = 450
         end
         object edtMessage2: TEdit
           AlignWithMargins = True
           Left = 0
           Top = 22
-          Width = 450
+          Width = 452
           Height = 21
           Margins.Left = 0
           Margins.Top = 0
@@ -336,12 +351,13 @@ object fClient: TfClient
           Margins.Bottom = 1
           Align = alTop
           TabOrder = 1
+          ExplicitWidth = 450
         end
         object edtMessage3: TEdit
           AlignWithMargins = True
           Left = 0
           Top = 44
-          Width = 450
+          Width = 452
           Height = 21
           Margins.Left = 0
           Margins.Top = 0
@@ -349,11 +365,12 @@ object fClient: TfClient
           Margins.Bottom = 0
           Align = alTop
           TabOrder = 2
+          ExplicitWidth = 450
         end
       end
       object Panel4: TPanel
         AlignWithMargins = True
-        Left = 455
+        Left = 457
         Top = 16
         Width = 115
         Height = 70
@@ -367,6 +384,7 @@ object fClient: TfClient
         Caption = 'Panel4'
         ShowCaption = False
         TabOrder = 1
+        ExplicitLeft = 455
         object btnMessage1: TButton
           AlignWithMargins = True
           Left = 0
@@ -419,10 +437,10 @@ object fClient: TfClient
     end
     object reLog: TRichEdit
       AlignWithMargins = True
-      Left = 2
-      Top = 57
-      Width = 571
-      Height = 211
+      Left = 1
+      Top = 56
+      Width = 573
+      Height = 213
       Margins.Left = 1
       Margins.Top = 1
       Margins.Right = 1
@@ -438,6 +456,10 @@ object fClient: TfClient
       ReadOnly = True
       TabOrder = 2
       Zoom = 100
+      ExplicitLeft = 2
+      ExplicitTop = 57
+      ExplicitWidth = 571
+      ExplicitHeight = 211
     end
   end
   object cSocket: TClientSocket
