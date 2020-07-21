@@ -293,58 +293,128 @@ object fClient: TfClient
       Margins.Right = 1
       Margins.Bottom = 1
       Align = alBottom
-      Caption = 'Mesage'
+      Caption = 'Messages'
       TabOrder = 1
-      object btnMessage1: TButton
-        Left = 470
-        Top = 15
-        Width = 90
-        Height = 21
-        Caption = 'Send MSG 1'
-        Enabled = False
+      object Panel3: TPanel
+        AlignWithMargins = True
+        Left = 3
+        Top = 16
+        Width = 450
+        Height = 70
+        Margins.Left = 1
+        Margins.Top = 1
+        Margins.Right = 1
+        Margins.Bottom = 1
+        Align = alLeft
+        Anchors = [akLeft, akTop, akRight, akBottom]
+        BevelEdges = []
+        BevelOuter = bvNone
+        ShowCaption = False
         TabOrder = 0
-        OnClick = btnMessage1Click
+        object edtMessage1: TEdit
+          AlignWithMargins = True
+          Left = 0
+          Top = 0
+          Width = 450
+          Height = 21
+          Margins.Left = 0
+          Margins.Top = 0
+          Margins.Right = 0
+          Margins.Bottom = 1
+          Align = alTop
+          TabOrder = 0
+        end
+        object edtMessage2: TEdit
+          AlignWithMargins = True
+          Left = 0
+          Top = 22
+          Width = 450
+          Height = 21
+          Margins.Left = 0
+          Margins.Top = 0
+          Margins.Right = 0
+          Margins.Bottom = 1
+          Align = alTop
+          TabOrder = 1
+        end
+        object edtMessage3: TEdit
+          AlignWithMargins = True
+          Left = 0
+          Top = 44
+          Width = 450
+          Height = 21
+          Margins.Left = 0
+          Margins.Top = 0
+          Margins.Right = 0
+          Margins.Bottom = 0
+          Align = alTop
+          TabOrder = 2
+        end
       end
-      object btnMessage2: TButton
-        Left = 470
-        Top = 38
-        Width = 90
-        Height = 21
-        Caption = 'Send MSG 2'
-        Enabled = False
+      object Panel4: TPanel
+        AlignWithMargins = True
+        Left = 455
+        Top = 16
+        Width = 115
+        Height = 70
+        Margins.Left = 1
+        Margins.Top = 1
+        Margins.Right = 1
+        Margins.Bottom = 1
+        Align = alClient
+        Anchors = [akTop, akRight, akBottom]
+        BevelOuter = bvNone
+        Caption = 'Panel4'
+        ShowCaption = False
         TabOrder = 1
-        OnClick = btnMessage2Click
-      end
-      object btnMessage3: TButton
-        Left = 470
-        Top = 61
-        Width = 90
-        Height = 21
-        Caption = 'Send MSG 3'
-        Enabled = False
-        TabOrder = 2
-        OnClick = btnMessage3Click
-      end
-      object edtMessage1: TEdit
-        Left = 15
-        Top = 15
-        Width = 450
-        Height = 21
-        TabOrder = 3
-      end
-      object edtMessage2: TEdit
-        Left = 15
-        Top = 38
-        Width = 450
-        Height = 21
-        TabOrder = 4
-      end
-      object edtMessage3: TEdit
-        Left = 15
-        Top = 61
-        Width = 450
-        Height = 21
-        TabOrder = 5
+        object btnMessage1: TButton
+          AlignWithMargins = True
+          Left = 0
+          Top = 0
+          Width = 115
+          Height = 21
+          Margins.Left = 0
+          Margins.Top = 0
+          Margins.Right = 0
+          Margins.Bottom = 1
+          Align = alTop
+          Caption = 'Send MSG 1'
+          Enabled = False
+          TabOrder = 0
+          OnClick = btnMessage1Click
+        end
+        object btnMessage2: TButton
+          AlignWithMargins = True
+          Left = 0
+          Top = 22
+          Width = 115
+          Height = 21
+          Margins.Left = 0
+          Margins.Top = 0
+          Margins.Right = 0
+          Margins.Bottom = 1
+          Align = alTop
+          Caption = 'Send MSG 2'
+          Enabled = False
+          TabOrder = 1
+          OnClick = btnMessage2Click
+        end
+        object btnMessage3: TButton
+          AlignWithMargins = True
+          Left = 0
+          Top = 44
+          Width = 115
+          Height = 21
+          Margins.Left = 0
+          Margins.Top = 0
+          Margins.Right = 0
+          Margins.Bottom = 1
+          Align = alTop
+          Caption = 'Send MSG 3'
+          Enabled = False
+          TabOrder = 2
+          OnClick = btnMessage3Click
+        end
       end
     end
     object reLog: TRichEdit

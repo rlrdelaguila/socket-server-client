@@ -7,11 +7,11 @@ uses
   System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls,
   Vcl.ComCtrls,
-  Vcl.Buttons, System.Win.ScktComp;
+  Vcl.Buttons, System.Win.ScktComp, Vcl.Menus;
 
 type
   TfClient = class(TForm)
-    StatusBar1: TStatusBar;
+    status: TStatusBar;
     Panel1: TPanel;
     Panel2: TPanel;
     GroupBox1: TGroupBox;
@@ -30,6 +30,9 @@ type
     edtMessage1: TEdit;
     edtMessage2: TEdit;
     edtMessage3: TEdit;
+    PopupMenu1: TPopupMenu;
+    LimparLog1: TMenuItem;
+    LimparLog2: TMenuItem;
     procedure btnCloseClick(Sender: TObject);
     procedure cSocketConnect(Sender: TObject; Socket: TCustomWinSocket);
     procedure cSocketDisconnect(Sender: TObject; Socket: TCustomWinSocket);
@@ -38,6 +41,14 @@ type
     procedure log(str: String; color: TColor);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure cSocketRead(Sender: TObject; Socket: TCustomWinSocket);
+    procedure cSocketError(Sender: TObject; Socket: TCustomWinSocket;
+      ErrorEvent: TErrorEvent; var ErrorCode: Integer);
+    procedure btnMessage1Click(Sender: TObject);
+    procedure btnMessage2Click(Sender: TObject);
+    procedure btnMessage3Click(Sender: TObject);
+    procedure LimparLog1Click(Sender: TObject);
+    procedure LimparLog2Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -72,6 +83,36 @@ begin
     log('Error - Ip inválido!', clRed);
 end;
 
+procedure TfClient.btnMessage1Click(Sender: TObject);
+begin
+  if cSocket.Active then
+  begin
+    cSocket.Socket.SendText(AnsiString(edtMessage1.Text));
+  end
+  else
+    log('Servidor desconectado!', clRed);
+end;
+
+procedure TfClient.btnMessage2Click(Sender: TObject);
+begin
+  if cSocket.Active then
+  begin
+    cSocket.Socket.SendText(AnsiString(edtMessage2.Text));
+  end
+  else
+    log('Servidor desconectado!', clRed);
+end;
+
+procedure TfClient.btnMessage3Click(Sender: TObject);
+begin
+  if cSocket.Active then
+  begin
+    cSocket.Socket.SendText(AnsiString(edtMessage3.Text));
+  end
+  else
+    log('Servidor desconectado!', clRed);
+end;
+
 procedure TfClient.cSocketConnect(Sender: TObject; Socket: TCustomWinSocket);
 begin
   btnCon.Caption := 'Disconnect';
@@ -80,6 +121,7 @@ begin
   btnMessage1.Enabled := True;
   btnMessage2.Enabled := True;
   btnMessage3.Enabled := True;
+  status.Panels.Items[1].Text := 'Connected';
 end;
 
 procedure TfClient.cSocketDisconnect(Sender: TObject; Socket: TCustomWinSocket);
@@ -90,6 +132,21 @@ begin
   btnMessage1.Enabled := False;
   btnMessage2.Enabled := False;
   btnMessage3.Enabled := False;
+  status.Panels.Items[1].Text := 'Disconnected';
+end;
+
+procedure TfClient.cSocketError(Sender: TObject; Socket: TCustomWinSocket;
+  ErrorEvent: TErrorEvent; var ErrorCode: Integer);
+begin
+  log('Error code: ' + ErrorCode.ToString, clRed);
+end;
+
+procedure TfClient.cSocketRead(Sender: TObject; Socket: TCustomWinSocket);
+var
+  str: String;
+begin
+  str := string(Socket.ReceiveText);
+  log(Socket.RemoteAddress + ' say: ' + str, clGreen);
 end;
 
 procedure TfClient.FormClose(Sender: TObject; var Action: TCloseAction);
@@ -181,6 +238,18 @@ begin
     IsWrongIP := True;
     Exit;
   end;
+end;
+
+procedure TfClient.LimparLog1Click(Sender: TObject);
+begin
+  reLog.Lines.Clear;
+end;
+
+procedure TfClient.LimparLog2Click(Sender: TObject);
+begin
+  reLog.Lines.SaveToFile(getCurrentDir + '\logClient.txt');
+  ShowMessage
+    ('Arquivo salvo como ''logClient.txt'' no mesmo diretório do programa');
 end;
 
 procedure TfClient.log(str: String; color: TColor);

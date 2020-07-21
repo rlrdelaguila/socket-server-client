@@ -34,6 +34,8 @@ type
     pmLog: TPopupMenu;
     LimparLog1: TMenuItem;
     LimparLog2: TMenuItem;
+    Panel3: TPanel;
+    Panel4: TPanel;
     procedure btnClientClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure reLogChange(Sender: TObject);

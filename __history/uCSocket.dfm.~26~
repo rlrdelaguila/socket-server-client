@@ -14,10 +14,11 @@ object fClient: TfClient
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
+  OnClose = FormClose
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object StatusBar1: TStatusBar
+  object status: TStatusBar
     AlignWithMargins = True
     Left = 1
     Top = 362
@@ -27,7 +28,20 @@ object fClient: TfClient
     Margins.Top = 1
     Margins.Right = 1
     Margins.Bottom = 1
-    Panels = <>
+    Panels = <
+      item
+        Text = 'Status:'
+        Width = 60
+      end
+      item
+        Text = 'Disconnected'
+        Width = 100
+      end
+      item
+        Alignment = taRightJustify
+        Text = 'Raul del Aguila - up 2.0 (20/07/2020)'
+        Width = 50
+      end>
   end
   object Panel1: TPanel
     AlignWithMargins = True
@@ -48,6 +62,7 @@ object fClient: TfClient
       Height = 55
       Align = alBottom
       Caption = 'Close'
+      Flat = True
       Glyph.Data = {
         42090000424D4209000000000000420000002800000018000000180000000100
         20000300000000090000120B0000120B000000000000000000000000FF0000FF
@@ -135,6 +150,7 @@ object fClient: TfClient
       Height = 55
       Align = alTop
       Caption = 'Connect'
+      Flat = True
       Glyph.Data = {
         E2080000424DE208000000000000420000002800000018000000170000000100
         200003000000A0080000130B0000130B000000000000000000000000FF0000FF
@@ -287,6 +303,7 @@ object fClient: TfClient
         Caption = 'Send MSG 1'
         Enabled = False
         TabOrder = 0
+        OnClick = btnMessage1Click
       end
       object btnMessage2: TButton
         Left = 470
@@ -296,6 +313,7 @@ object fClient: TfClient
         Caption = 'Send MSG 2'
         Enabled = False
         TabOrder = 1
+        OnClick = btnMessage2Click
       end
       object btnMessage3: TButton
         Left = 470
@@ -305,6 +323,7 @@ object fClient: TfClient
         Caption = 'Send MSG 3'
         Enabled = False
         TabOrder = 2
+        OnClick = btnMessage3Click
       end
       object edtMessage1: TEdit
         Left = 15
@@ -345,6 +364,7 @@ object fClient: TfClient
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
+      PopupMenu = PopupMenu1
       ReadOnly = True
       TabOrder = 2
       Zoom = 100
@@ -356,7 +376,21 @@ object fClient: TfClient
     Port = 0
     OnConnect = cSocketConnect
     OnDisconnect = cSocketDisconnect
-    Left = 576
+    OnRead = cSocketRead
+    OnError = cSocketError
+    Left = 544
     Top = 16
+  end
+  object PopupMenu1: TPopupMenu
+    Left = 592
+    Top = 16
+    object LimparLog1: TMenuItem
+      Caption = 'Limpar Log'
+      OnClick = LimparLog1Click
+    end
+    object LimparLog2: TMenuItem
+      Caption = 'Salvar Log'
+      OnClick = LimparLog2Click
+    end
   end
 end

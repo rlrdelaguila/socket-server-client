@@ -2,11 +2,13 @@ object fServer: TfServer
   Left = 0
   Top = 0
   BorderIcons = [biSystemMenu, biMinimize]
-  BorderStyle = bsSingle
   Caption = 'Socket Server'
-  ClientHeight = 397
-  ClientWidth = 744
+  ClientHeight = 387
+  ClientWidth = 734
   Color = clBtnFace
+  Constraints.MaxWidth = 750
+  Constraints.MinHeight = 426
+  Constraints.MinWidth = 750
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -22,7 +24,7 @@ object fServer: TfServer
     Left = 1
     Top = 1
     Width = 60
-    Height = 374
+    Height = 364
     Margins.Left = 1
     Margins.Top = 1
     Margins.Right = 1
@@ -48,6 +50,7 @@ object fServer: TfServer
       Align = alTop
       Caption = 'Start'
       ImageIndex = 0
+      Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -140,6 +143,7 @@ object fServer: TfServer
       Height = 55
       Align = alTop
       Caption = 'Client'
+      Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -227,12 +231,13 @@ object fServer: TfServer
     end
     object btnClose: TSpeedButton
       Left = 1
-      Top = 318
+      Top = 308
       Width = 58
       Height = 55
       Align = alBottom
       Caption = 'Exit'
       ImageIndex = 1
+      Flat = True
       Font.Charset = DEFAULT_CHARSET
       Font.Color = clWindowText
       Font.Height = -11
@@ -326,8 +331,8 @@ object fServer: TfServer
     AlignWithMargins = True
     Left = 63
     Top = 1
-    Width = 680
-    Height = 374
+    Width = 670
+    Height = 364
     Margins.Left = 1
     Margins.Top = 1
     Margins.Right = 1
@@ -338,7 +343,7 @@ object fServer: TfServer
       AlignWithMargins = True
       Left = 2
       Top = 2
-      Width = 676
+      Width = 666
       Height = 55
       Margins.Left = 1
       Margins.Top = 1
@@ -347,6 +352,9 @@ object fServer: TfServer
       Align = alTop
       Caption = 'Server'
       TabOrder = 0
+      DesignSize = (
+        666
+        55)
       object Label1: TLabel
         Left = 375
         Top = 22
@@ -359,6 +367,7 @@ object fServer: TfServer
         Top = 22
         Width = 14
         Height = 13
+        Anchors = [akLeft, akRight]
         Caption = 'IP:'
       end
       object edtIP: TEdit
@@ -383,8 +392,8 @@ object fServer: TfServer
     object gpMessages: TGroupBox
       AlignWithMargins = True
       Left = 2
-      Top = 283
-      Width = 676
+      Top = 273
+      Width = 666
       Height = 89
       Margins.Left = 1
       Margins.Top = 1
@@ -422,6 +431,7 @@ object fServer: TfServer
         Caption = 'Send MSG 1'
         Enabled = False
         TabOrder = 3
+        OnClick = btnMessage1Click
       end
       object btnMessage2: TButton
         Left = 571
@@ -431,6 +441,7 @@ object fServer: TfServer
         Caption = 'Send MSG 2'
         Enabled = False
         TabOrder = 4
+        OnClick = btnMessage2Click
       end
       object btnMessage3: TButton
         Left = 571
@@ -440,14 +451,15 @@ object fServer: TfServer
         Caption = 'Send MSG 3'
         Enabled = False
         TabOrder = 5
+        OnClick = btnMessage3Click
       end
     end
     object reLog: TRichEdit
       AlignWithMargins = True
       Left = 131
       Top = 59
-      Width = 547
-      Height = 222
+      Width = 537
+      Height = 212
       Margins.Left = 1
       Margins.Top = 1
       Margins.Right = 1
@@ -459,6 +471,7 @@ object fServer: TfServer
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
+      PopupMenu = pmLog
       ReadOnly = True
       ScrollBars = ssVertical
       TabOrder = 2
@@ -470,7 +483,7 @@ object fServer: TfServer
       Left = 2
       Top = 59
       Width = 127
-      Height = 222
+      Height = 212
       Margins.Left = 1
       Margins.Top = 1
       Margins.Right = 1
@@ -483,17 +496,31 @@ object fServer: TfServer
       OnDblClick = lbClientsDblClick
     end
   end
-  object StatusBar1: TStatusBar
+  object status: TStatusBar
     AlignWithMargins = True
     Left = 1
-    Top = 377
-    Width = 742
+    Top = 367
+    Width = 732
     Height = 19
     Margins.Left = 1
     Margins.Top = 1
     Margins.Right = 1
     Margins.Bottom = 1
-    Panels = <>
+    Panels = <
+      item
+        Alignment = taCenter
+        Text = 'Status: '
+        Width = 60
+      end
+      item
+        Text = 'Server Down'
+        Width = 100
+      end
+      item
+        Alignment = taRightJustify
+        Text = 'Raul del Aguila - up 2.0 (20/07/2020)'
+        Width = 50
+      end>
   end
   object sSocket: TServerSocket
     Active = False
@@ -503,7 +530,20 @@ object fServer: TfServer
     OnClientConnect = sSocketClientConnect
     OnClientDisconnect = sSocketClientDisconnect
     OnClientRead = sSocketClientRead
-    Left = 600
+    OnClientError = sSocketClientError
+    Left = 632
     Top = 16
+  end
+  object pmLog: TPopupMenu
+    Left = 680
+    Top = 16
+    object LimparLog1: TMenuItem
+      Caption = 'Limpar Log'
+      OnClick = LimparLog1Click
+    end
+    object LimparLog2: TMenuItem
+      Caption = 'Salvar Log'
+      OnClick = LimparLog2Click
+    end
   end
 end
