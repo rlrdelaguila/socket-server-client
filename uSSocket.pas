@@ -56,6 +56,7 @@ type
     procedure btnMessage1Click(Sender: TObject);
     procedure btnMessage2Click(Sender: TObject);
     procedure btnMessage3Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -102,6 +103,11 @@ begin
     log('Error: Porta não especificada!', clRed);
 end;
 
+procedure TfServer.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Action := caFree;
+end;
+
 procedure TfServer.FormCreate(Sender: TObject);
 begin
   reLog.styleElements := reLog.styleElements - [seFont];
@@ -129,7 +135,7 @@ procedure TfServer.btnCloseClick(Sender: TObject);
 begin
   if sSocket.Active then
     sSocket.Active := False;
-  Application.Terminate;
+  application.Terminate;
 end;
 
 procedure TfServer.btnMessage1Click(Sender: TObject);
@@ -272,7 +278,7 @@ end;
 procedure TfServer.log(str: String; color: TColor);
 begin
   reLog.SelAttributes.color := color;
-  Application.ProcessMessages;
+  application.ProcessMessages;
   reLog.Lines.Add(FormatDateTime('dd.mm.yy hh:MM:ss - ', Now) + str);
 end;
 
