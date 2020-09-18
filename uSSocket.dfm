@@ -343,6 +343,12 @@ object fServer: TfServer
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 1
+    object Splitter1: TSplitter
+      Left = 129
+      Top = 57
+      Width = 1
+      Height = 216
+    end
     object gpServer: TGroupBox
       AlignWithMargins = True
       Left = 1
@@ -530,9 +536,9 @@ object fServer: TfServer
     end
     object reLog: TRichEdit
       AlignWithMargins = True
-      Left = 130
+      Left = 131
       Top = 58
-      Width = 539
+      Width = 538
       Height = 214
       Margins.Left = 1
       Margins.Top = 1
@@ -552,6 +558,8 @@ object fServer: TfServer
       TabOrder = 2
       Zoom = 100
       OnChange = reLogChange
+      ExplicitLeft = 130
+      ExplicitWidth = 539
     end
     object lbClients: TListBox
       AlignWithMargins = True

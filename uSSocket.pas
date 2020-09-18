@@ -36,6 +36,7 @@ type
     LimparLog2: TMenuItem;
     Panel3: TPanel;
     Panel4: TPanel;
+    Splitter1: TSplitter;
     procedure btnClientClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure reLogChange(Sender: TObject);

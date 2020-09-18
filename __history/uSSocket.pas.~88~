@@ -34,6 +34,8 @@ type
     pmLog: TPopupMenu;
     LimparLog1: TMenuItem;
     LimparLog2: TMenuItem;
+    Panel3: TPanel;
+    Panel4: TPanel;
     procedure btnClientClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure reLogChange(Sender: TObject);
@@ -54,6 +56,7 @@ type
     procedure btnMessage1Click(Sender: TObject);
     procedure btnMessage2Click(Sender: TObject);
     procedure btnMessage3Click(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -76,12 +79,16 @@ begin
   begin
     if not sSocket.Active then
     begin
-    try
-      sSocket.Port := strtoint(edtPort.Text);
-      sSocket.Active := True;
-    except
-         ShowMessage('Erro');
-    end;
+      try
+        sSocket.Port := strtoint(edtPort.Text);
+        try
+          sSocket.Active := True;
+        except
+          log('IP indisponível.', clRed);
+        end;
+      except
+        log(edtPort.Text + ' não é um inteiro válido.', clRed);
+      end;
     end
     else
     begin
@@ -93,7 +100,12 @@ begin
     end;
   end
   else
-    log('Error: Port error!', clRed);
+    log('Error: Porta não especificada!', clRed);
+end;
+
+procedure TfServer.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Action := caFree;
 end;
 
 procedure TfServer.FormCreate(Sender: TObject);
@@ -123,7 +135,7 @@ procedure TfServer.btnCloseClick(Sender: TObject);
 begin
   if sSocket.Active then
     sSocket.Active := False;
-  Application.Terminate;
+  application.Terminate;
 end;
 
 procedure TfServer.btnMessage1Click(Sender: TObject);
@@ -259,13 +271,14 @@ end;
 procedure TfServer.LimparLog2Click(Sender: TObject);
 begin
   reLog.Lines.SaveToFile(getCurrentDir + '\logServer.txt');
-  ShowMessage('Arquivo salvo como ''logServer.txt'' no mesmo diretório do programa');
+  ShowMessage
+    ('Arquivo salvo como ''logServer.txt'' no mesmo diretório do programa');
 end;
 
 procedure TfServer.log(str: String; color: TColor);
 begin
   reLog.SelAttributes.color := color;
-  Application.ProcessMessages;
+  application.ProcessMessages;
   reLog.Lines.Add(FormatDateTime('dd.mm.yy hh:MM:ss - ', Now) + str);
 end;
 
