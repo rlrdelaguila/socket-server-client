@@ -1,0 +1,18 @@
+extends ../layouts/LayoutTheme
+
+append variables
+  - var CWD = '../'  
+  - var firstParent = 'pages'              
+  - var currentPage = 'starter' 
+    
+append content
+  .card
+    .card-body.overflow-hidden.p-lg-6
+      .row.align-items-center
+        .col-lg-6
+          img.img-fluid(src=`${CWD}assets/img/illustrations/4.png` alt='')
+        .col-lg-6.pl-lg-4.my-5.text-center.text-lg-left
+          h3 
+            a(href='#') Edit me!
+          p.lead Create Something Beautiful.
+          a(href=`${CWD}documentation/getting-started.html`).btn.btn-falcon-primary Getting started

@@ -1,0 +1,46 @@
+extends ../layouts/LayoutComponent
+include ../mixins/utilities/Display
+
+append variables
+  - var firstParent = 'utilities'
+  - var currentPage = 'display'
+  -
+    var pageHeader = {
+      title: 'Display',
+      description: 'Quickly and responsively toggle the display value of components and more with our display utilities. Includes support for some of the more common values, as well as some extras for controlling display when printing.',
+      url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/utilities/display/`,
+      linkText: 'Display on Bootstrap'
+    }
+
+append content
+  +PageHeader(pageHeader)
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Notation')
+    .card-body.bg-light
+      +DisplayProperty
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Example')
+    .card-body.bg-light
+      +componentCard
+        +DisplayBasicExample
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Hiding Elements')
+    .card-body.bg-light
+      +DisplayInHide
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Display in Prints')
+        +DisplayPrintDescription
+    .card-body.bg-light
+      +componentCard
+        +DisplayPrintDemo
+
+
+
+

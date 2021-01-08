@@ -1,0 +1,46 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Carousel
+
+append variables
+  - var firstParent = 'components'
+  - var currentPage = 'carousel'
+  -
+    var pageHeader = {
+      title: 'Carousel',
+      description: 'A slideshow component for cycling through elements—images or slides of text—like a carousel.',
+      url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/components/carousel/`,
+      linkText: 'Carousel on Bootstrap'
+    }
+
+block component
+  +PageHeader(pageHeader)
+    
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Basic Example')
+    .card-body.bg-light.overflow-hidden
+      +componentCard
+        +CarouselBasicDemo
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Styled Carousel')
+    .card-body.bg-light.overflow-hidden
+      +componentCard
+        +CarouselStyledDemo
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('With Captions')
+    .card-body.bg-light.overflow-hidden
+      +componentCard
+        +CarouselWithCaptionDemo
+  .card
+    .card-header
+      +DocCardHeader('Fade Example')
+    .card-body.bg-light.overflow-hidden
+      +componentCard
+        +CarouselFadeDemo
+
+
+

@@ -1,0 +1,109 @@
+mixin WizardContentProfile
+  form
+    .mb-3
+      .row(data-dropzone data-options!={ maxFiles: 1, data: [{ name: 'avatar.png', size: '54kb', url: `${CWD}assets/img/team`}]})
+        .fallback
+          input(type="file" name="file")
+        .col-md-auto
+          .dz-preview.dz-preview-single
+            .dz-preview-cover.d-flex.align-items-center.justify-content-center.mb-3.mb-md-0
+              .avatar.avatar-4xl
+                img.rounded-circle(src='...' alt='...' data-dz-thumbnail)
+              .dz-progress
+                span.dz-upload(data-dz-uploadprogress='')
+        .col-md
+          .dz-message.dropzone-area.px-2.py-3(data-dz-message)
+            .text-center
+              img(src=`${CWD}assets/img/icons/cloud-upload.svg`, width=25 alt="").mr-2
+              | Upload your profile picture
+              p.mb-0.fs--1.text-400 Upload a 300x300 jpg image with 
+                br
+                | a maximum size of 400KB
+
+
+    .mb-3
+      label.form-label(for="gender") Gender
+      select.form-select#gender(name="gender")
+        option(value="") Select your gender ...
+        option(value="Male") Male
+        option(value="Female") Female
+        option(value="Other") Other
+    .mb-3
+      label.form-label(for="wizard-phone") Phone
+      input(type="text" name="phone" placeholder="Phone").form-control#wizard-phone
+    .mb-3
+      label.form-label(for="wizard-datepicker") Date of Birth
+      input.form-control.datetimepicker#wizard-datepicker(type="text" placeholder="d/m/y" data-options!={dateFormat:'d/m/y'})
+    .mb-3
+      label.form-label(for="wizard-address") Address
+      textarea(rows="4").form-control#wizard-address
+
+mixin WizardContent(config)
+  - var config = Object.assign({ url: `${CWD}authentication/wizard.html` }, config)
+  .tab-content
+    #bootstrap-wizard-tab1.tab-pane.active.px-sm-3.px-md-5
+      form
+        .mb-3
+          label.form-label(for="wizard-name") Name
+          input(type="text" name="name" placeholder="John Smith")#wizard-name.form-control
+        .mb-3
+          label.form-label(for="wizard-email") Email*
+          input(type="email" name="email" placeholder="Email address" required)#wizard-email.form-control
+        .row.g-2
+          .col-6  
+            .mb-3
+              label.form-label(for="wizard-password") Password*
+              input(type="password" name="password" placeholder="Password" required).form-control#wizard-password
+          .col-6
+            .mb-3
+              label.form-label(for="wizard-confirm-password") Confirm Password*
+              input(type="password" name="confirmPassword" placeholder="Confirm Password").form-control#wizard-confirm-password
+        .form-check
+          input.form-check-input#wizard-checkbox(type='checkbox' name="terms" required checked)
+          label.form-check-label(for='wizard-checkbox')
+            | I accept the 
+            a(href='#!') terms 
+            | and 
+            a(href='#!') privacy policy
+    #bootstrap-wizard-tab2.tab-pane.px-sm-3.px-md-5
+      +WizardContentProfile
+    #bootstrap-wizard-tab3.tab-pane.px-sm-3.px-md-5
+      form.form-validation
+        .row.g-2
+          .col
+            .mb-3
+              label.form-label(for='card-number') Card Number
+              input#card-number.form-control(placeholder='XXXX XXXX XXXX XXXX' type='text')
+          .col
+            .mb-3
+              label.form-label(for='card-name') Name on Card
+              input#card-name.form-control(placeholder='John Doe' name="cardName" type='text')
+        .row.g-2
+          .col-6
+            .mb-3
+              label.form-label(for='card-holder-country') Country
+              select#card-holder-country.form-select(name='customSelectCountry')
+                option(value='') Select your country ...
+                each country, index in countries
+                  option(value=country)=country
+          .col-6
+            .mb-3
+              label.form-label(for='card-holder-zip-code') Zip Code
+              input#card-holder-zip-code.form-control(placeholder='1234' name="zipCode" type='text')
+          .col-6
+            .form-group.mb-0
+              label.form-label(for='card-exp-date') Exp Date
+              input#card-exp-date.form-control(placeholder='15/2024' name="expDate" type='text')
+          .col-6
+            .form-group.mb-0
+              label.form-label(for='card-cvv')
+                | CVV
+              span(data-toggle="tooltip" data-placement="top" title="Card verification value").ml-1
+                span.fa.fa-question-circle
+              input#card-cvv.form-control(placeholder='123' name="cvv" maxlength='3' pattern='[0-9]{3}' type='text')
+    #bootstrap-wizard-tab4.tab-pane.text-center.px-sm-3.px-md-5
+      .wizard-lottie-wrapper
+        .lottie.wizard-lottie.mx-auto.my-3(data-options!={ path: `${CWD}assets/img/animated-icons/celebration.json`})
+      h4.mb-1 Your account is all set!
+      p Now you can access to your account
+      a(href=config.url).btn.btn-primary.px-5.my-3 Start Over

@@ -1,0 +1,168 @@
+mixin UtilitiesText
+  p
+    a(href=`https://v5.getbootstrap.com/docs/${bootstrapVersion}/utilities/spacing/` target="_blank") Margin utilities
+    |  are the easiest way to add some structure to forms. They provide basic grouping of labels, controls, optional form text, and form validation messaging. We recommend sticking to 
+    code margin-bottom
+    |  utilities, and using a single direction throughout the form for consistency.
+
+mixin UtilitiesExample
+  .mb-3
+    label.form-label(for='formGroupExampleInput') Example label
+    input#formGroupExampleInput.form-control(type='text', placeholder='Example input placeholder')
+  .mb-3
+    label.form-label(for='formGroupExampleInput2') Another label
+    input#formGroupExampleInput2.form-control(type='text', placeholder='Another input placeholder')
+
+mixin FormGridText
+  p More complex forms can be built using our grid classes. Use these for form layouts that require multiple columns, varied widths, and additional alignment options. 
+  strong
+    | Requires the 
+    code $enable-grid-classes
+    |  Sass variable to be enabled
+    |(on by default).
+
+mixin FormGridExample
+  .row
+    .col
+      input.form-control(type='text', placeholder='First name', aria-label='First name')
+    .col
+      input.form-control(type='text', placeholder='Last name', aria-label='Last name')
+
+mixin GuttersText
+  p By adding 
+    a(href=`https://v5.getbootstrap.com/docs/${bootstrapVersion}/layout/grid/#gutters`) gutter modifier classes
+    | , you can have control over the gutter width in as well the inline as block direction. 
+    strong
+      | Also requires the 
+      code $enable-grid-classes
+      |  Sass variable to be enabled
+    |  (on by default).
+
+
+mixin GuttersExample
+  .row.g-3
+    .col
+      input.form-control(type='text', placeholder='First name', aria-label='First name')
+    .col
+      input.form-control(type='text', placeholder='Last name', aria-label='Last name')
+
+
+mixin HorizontalformText
+  p Create horizontal forms with the grid by adding the 
+    code .row
+    |  class to form groups and using the 
+    code .col-*-*
+    |  classes to specify the width of your labels and controls. Be sure to add 
+    code .col-form-label
+    |  to your 
+    code &lt;label&gt;
+    | s as well so they’re vertically centered with their associated form controls.
+  p At times, you maybe need to use margin or padding utilities to create that perfect alignment you need. For example, we’ve removed the 
+    code padding-top
+    |  on our stacked radio inputs label to better align the text baseline.
+
+mixin HorizontalformExample
+  form
+    .row.mb-3
+      label.col-sm-2.col-form-label(for='inputEmail3') Email
+      .col-sm-10
+        input#inputEmail3.form-control(type='email')
+    .row.mb-3
+      label.col-sm-2.col-form-label(for='inputPassword3') Password
+      .col-sm-10
+        input#inputPassword3.form-control(type='password')
+    fieldset
+      .row.mb-3
+        label.col-form-label.col-sm-2.pt-0 Radios
+        .col-sm-10
+          .form-check
+            input#gridRadios1.form-check-input(type='radio', name='gridRadios', value='option1', checked='')
+            label.form-check-label(for='gridRadios1')
+              | First radio
+          .form-check
+            input#gridRadios2.form-check-input(type='radio', name='gridRadios', value='option2')
+            label.form-check-label(for='gridRadios2')
+              | Second radio
+          .form-check.disabled
+            input#gridRadios3.form-check-input(type='radio', name='gridRadios', value='option3', disabled='')
+            label.form-check-label(for='gridRadios3')
+              | Third disabled radio
+    .row.mb-3
+      .col-form-label.col-sm-2.pt-0 Checkbox
+      .col-sm-10
+        .form-check
+          input#gridCheck1.form-check-input(type='checkbox')
+          label.form-check-label(for='gridCheck1')
+            | Example checkbox
+    button.btn.btn-primary(type='submit') Sign in
+
+mixin HorizontalSizing
+  p Be sure to use 
+    code .col-form-label-sm
+    |  or 
+    code .col-form-label-lg
+    |  to your 
+    code &lt;label&gt;
+    | s or 
+    code &lt;legend&gt;
+    | s to correctly follow the size of 
+    code .form-control-lg
+    |  and 
+    code .form-control-sm
+    | .
+
+
+mixin HorizontalSizingExample 
+  .row.mb-3
+    label.col-sm-2.col-form-label.col-form-label-sm(for='colFormLabelSm') Email
+    .col-sm-10
+      input#colFormLabelSm.form-control.form-control-sm(type='email', placeholder='col-form-label-sm')
+  .row.mb-3
+    label.col-sm-2.col-form-label(for='colFormLabel') Email
+    .col-sm-10
+      input#colFormLabel.form-control(type='email', placeholder='col-form-label')
+  .row
+    label.col-sm-2.col-form-label.col-form-label-lg(for='colFormLabelLg') Email
+    .col-sm-10
+      input#colFormLabelLg.form-control.form-control-lg(type='email', placeholder='col-form-label-lg')
+
+mixin InlineForms
+  p Use the 
+    code .col-auto
+    |  class to create horizontal layouts. By adding 
+    a(href=`https://v5.getbootstrap.com/docs/${bootstrapVersion}/layout/grid/#gutters`) gutter modifier classes
+    | , we’ll have gutters in horizontal and vertical directions. The 
+    code .align-items-center
+    |  aligns the form elements to the middle, making the 
+    code .form-checkbox
+    |  align properly.
+  p Be sure to always include a 
+    code label
+    |  with each form control, even if you need to hide it from non-screenreader visitors with 
+    code .sr-only
+    | .
+
+mixin InlineformsExample
+  form.row.row-cols-lg-5.g-3.align-items-center
+    .col-12
+      label.sr-only(for='inlineFormInputName') Name
+      input#inlineFormInputName.form-control(type='text', placeholder='Jane Doe')
+    .col-12
+      label.sr-only(for='inlineFormInputGroupUsername') Username
+      .input-group
+        .input-group-text @
+        input#inlineFormInputGroupUsername.form-control(type='text', placeholder='Username')
+    .col-12
+      label.sr-only(for='inlineFormSelectPref') Preference
+      select#inlineFormSelectPref.form-select
+        option(selected='') Choose...
+        option(value='1') One
+        option(value='2') Two
+        option(value='3') Three
+    .col-12
+      .form-check.mb-0
+        input#inlineFormCheck.form-check-input(type='checkbox')
+        label.form-check-label(for='inlineFormCheck')
+          | Remember me
+    .col-12
+      button.btn.btn-primary(type='submit') Submit

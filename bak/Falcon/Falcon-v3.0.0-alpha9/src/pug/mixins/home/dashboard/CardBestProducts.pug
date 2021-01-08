@@ -1,0 +1,82 @@
+append variables
+  - 
+    var bestProducts = [
+      {
+        img: 12,
+        title: 'Raven Pro',
+        type: 'Landing',
+        unit: 19,
+        price: 69,
+      },
+      {
+        img: 10,
+        title: 'Boots4',
+        type: 'Portfolio',
+        unit: 10,
+        price: 86,
+      },
+      {
+        img: 11,
+        title: 'Falcon',
+        type: 'Admin',
+        unit: 11,
+        price: 49,
+      },
+      {
+        img: 14,
+        title: 'Slick',
+        type: 'Builder',
+        unit: 5,
+        price: 49,
+      },
+      {
+        img: 13,
+        title: 'Reign Pro',
+        type: 'Agency',
+        unit: 6,
+        price: 39,
+      },
+    ]
+
+
+mixin ProductItem(product, index, totalPrice)
+  - var productTotalPrice = product.unit * product.price;
+  - var parcentage = ((productTotalPrice * 100) / totalPrice).toFixed(0);
+  tr(class=(index !== bestProducts.length - 1 ? 'border-bottom border-200' : ''))
+    td
+      .d-flex.align-items-center.position-relative
+        img(src=`${CWD}assets/img/products/${product.img}.png`, width="60" alt="").rounded.border.border-200
+        .flex-1.ml-3
+          h6.mb-1.font-weight-semi-bold
+            a(href="#!").text-dark.stretched-link=product.title
+          p.font-weight-semi-bold.mb-0.text-500=product.type
+    td.align-middle.text-right.font-weight-semi-bold $#{productTotalPrice}
+    td.align-middle.pr-card
+      .d-flex.align-items-center
+        .progress.w-100(style=`height: 5px;`).mr-2.rounded-lg.bg-200
+          .progress-bar.rounded-pill(role='progressbar', style=`width: ${parcentage}%;`  aria-valuenow=`${parcentage}`, aria-valuemin='0', aria-valuemax='100')
+        .font-weight-semi-bold.ml-2 #{parcentage}%
+
+
+mixin CardBestProducts
+  - var totalPrice = bestProducts.map(product => product.unit * product.price).reduce((total, currentValue) => total + currentValue);
+  .card.h-lg-100.overflow-hidden&attributes(attributes)
+    .card-body.p-0
+      table.table.table-dashboard.mb-0.table-borderless.fs--1
+        thead.bg-light
+          tr.text-900
+            th Best Selling Products
+            th.text-right Revenue ($#{totalPrice})
+            th.pr-card.text-right(style="width: 8rem") Revenue (%)
+        tbody
+          each product, index in bestProducts
+            +ProductItem(product, index, totalPrice)
+    .card-footer.bg-light.py-2
+      .row.flex-between-center
+        .col-auto
+          select.form-select.form-select-sm
+            option Last 7 days
+            option Last Month
+            option Last Year
+        .col-auto
+          a(href="#!").btn.btn-sm.btn-falcon-default View All

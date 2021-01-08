@@ -1,0 +1,49 @@
+/*-----------------------------------------------
+|   Card
+-----------------------------------------------*/
+.card {
+  box-shadow: $box-shadow;
+}
+.card-link {
+  font-size: map_get($font-sizes, "-1");
+  font-weight: $font-weight-semi-bold;
+}
+.card-title {
+  font-weight: $font-weight-semi-bold;
+  font-size: map_get($font-sizes, 1);
+}
+.card-body:last-child {
+  border-bottom-left-radius: $card-border-radius;
+  border-bottom-right-radius: $card-border-radius;
+}
+
+
+/*-----------------------------------------------
+|   Card spacer
+-----------------------------------------------*/
+.pl-card,
+.px-card,
+.p-card {
+  padding-left: $card-spacer-x !important;
+}
+.pr-card,
+.px-card,
+.p-card {
+  padding-right: $card-spacer-x !important;
+}
+.pt-card,
+.py-card,
+.p-card {
+  padding-top: $card-spacer-x !important;
+}
+.pb-card,
+.py-card,
+.p-card {
+  padding-bottom: $card-spacer-x !important;
+}
+.mt-card {
+  margin-top: $card-spacer-x !important;
+}
+.mr-card {
+  margin-right: $card-spacer-x !important;
+}

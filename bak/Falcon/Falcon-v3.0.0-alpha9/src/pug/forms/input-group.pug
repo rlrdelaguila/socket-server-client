@@ -1,0 +1,76 @@
+extends ../layouts/LayoutComponent
+include ../mixins/forms/InputGroup
+
+append variables
+  - var firstParent = 'forms'              
+  - var currentPage = 'input-group'
+  -
+    var pageHeader = 
+      {
+        title: 'Input group',
+        description: 'Easily extend form controls by adding text, buttons, or button groups on either side of textual inputs, custom selects, and custom file inputs.',
+        url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/forms/input-group`,
+        linkText: 'Input group on Bootstrap'
+      }
+block component
+  +PageHeader(pageHeader)
+
+  .card.mb-3
+    .card-header 
+      h5.mb-1(data-anchor) Basic example
+      p.mb-0 Place one add-on or button on either side of an input. You may also place one on both sides of an input. Remember to place 
+        code label
+        |'s outside the input group.
+    .card-body.bg-light
+      +componentCard
+        +BasicExample
+
+  .card.mb-3
+    .card-header 
+      h5.mb-1(data-anchor) Wrapping
+      p.mb-0 Input groups wrap by default via 
+        code flex-wrap: wrap
+        |  in order to accommodate custom form field validation within an input group. You may disable this with 
+        code .flex-nowrap
+    .card-body.bg-light
+      +componentCard
+        +WrappingExample  
+
+  .card.mb-3
+    .card-header 
+      h5.mb-1(data-anchor) Sizing
+      p.mb-0 Add the relative form sizing classes to the 
+        code .input-group
+        |  itself and contents within will automatically resize—no need for repeating the form control size classes on each element.
+    .card-body.bg-light
+      +componentCard
+        +SizingExample 
+
+  .card.mb-3
+    .card-header 
+      h5.mb-1(data-anchor) Checkboxes and radios
+      p.mb-0 Place any checkbox or radio option within an input group’s addon instead of text.
+    .card-body.bg-light
+      +componentCard
+        +CheckboxesRadios 
+
+  .card.mb-3
+    .card-header 
+      h5.mb-0(data-anchor) Multiple inputs
+      p While multiple 
+        code input
+        | s are supported visually, validation styles are only available for input groups with a single 
+        code input
+        | .
+    .card-body.bg-light
+      +componentCard
+        +MultipleInputs
+
+  .card.mb-3
+    .card-header 
+      h5.mb-1(data-anchor) Multiple addons
+      p.mb-0 Multiple add-ons are supported and can be mixed with checkbox and radio input versions.
+    .card-body.bg-light
+      +componentCard
+        +MultipleAddons                               
+

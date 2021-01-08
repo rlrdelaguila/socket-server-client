@@ -1,0 +1,46 @@
+
+mixin ResponsiveImageDescription
+  p&attributes(attributes) Images in Bootstrap are made responsive with 
+    code .img-fluid
+    | . This applies 
+    code max-width: 100%;
+    |  and 
+    code height: auto;
+    |  to the image so that it scales with the parent element.
+
+mixin ResponsiveImageDemo
+  img.img-fluid.rounded(src=`${CWD}assets/img/generic/9.jpg`, alt='')
+
+mixin ImageThumbnailDescription
+  p&attributes(attributes) In addition to our 
+    a(href=`https://v5.getbootstrap.com/docs/${bootstrapVersion}/utilities/borders/`) border-radius utilities
+    | , you can use 
+    code .img-thumbnail
+    |  to give an image a rounded 1px border appearance.
+
+mixin ImageThumbnailDemo
+  img.img-thumbnail(src=`${CWD}assets/img/team/6.jpg`, alt='' )
+ 
+mixin AligningIageDescription
+  p&attributes(attributes) Align images with the 
+    a(href=`https://v5.getbootstrap.com/docs/${bootstrapVersion}/utilities/float/`) helper float classes
+    |  or 
+    a(href=`https://v5.getbootstrap.com/docs/${bootstrapVersion}/utilities/text/#text-alignment/`) text alignment classes
+    | . 
+    code block
+    | -level images can be centered using 
+
+    a(href=`https://v5.getbootstrap.com/docs/${bootstrapVersion}/utilities/spacing/#horizontal-centering/`)
+      | the 
+      code .mx-auto
+      |  margin utility class
+    | .
+
+mixin AlignImageDemo
+  img.rounded.float-left.w-25.mt-3(src=`${CWD}assets/img/team/24.jpg`, alt='')
+  = '\n'
+  img.rounded.float-right.w-25.mt-3(src=`${CWD}assets/img/team/25.jpg`, alt='')   
+
+
+
+

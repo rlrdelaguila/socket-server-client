@@ -1,0 +1,49 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Table
+
+append variables
+  - var firstParent = 'components'              
+  - var currentPage = 'tables'
+  -
+    var pageHeader = {
+      title: 'Tables',
+      description: "Documentation and examples for opt-in styling of tables with Zion.",
+      url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/content/tables/`,
+      linkText: 'Tables on Bootstrap'
+    }
+
+append content
+  +PageHeader(pageHeader)
+
+  .row.g-0
+    .col-lg-6.pr-lg-2
+      .card.mb-3
+        .card-header
+          +DocCardHeader('Example')
+            +TableBasicExampleDescription.mt-2.mb-0
+        .card-body.bg-light
+          +componentCard
+            +Table
+    .col-lg-6.pl-lg-2
+      .card.mb-3
+        .card-header
+          +DocCardHeader('Variants')
+            +TableVariantsDescription.mt-2.mb-0
+        .card-body.bg-light
+          +componentCard
+            +Table.table-dark
+    .col-lg-6.pr-lg-2
+      .card.mb-3.mb-lg-0
+        .card-header.bg-light
+          +DocCardHeader('Striped')
+        .card-body
+          +componentCard
+            +Table.table-striped
+            
+    .col-lg-6.pl-lg-2
+      .card
+        .card-header.bg-light
+          +DocCardHeader('Table Hover')
+        .card-body
+          +componentCard
+            +Table.table-hover

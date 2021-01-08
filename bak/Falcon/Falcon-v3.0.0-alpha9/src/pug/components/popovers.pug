@@ -1,0 +1,29 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Popovers
+
+append variables
+  - var firstParent = 'components'              
+  - var currentPage = 'popovers'
+  -
+    var pageHeader = {
+      title: 'Popovers',
+      description: "Documentation and examples for showing pagination to indicate a series of related content exists across multiple pages.",
+      url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/components/popovers/`,
+      linkText: 'Popovers on Bootstrap'
+    } 
+
+block component
+
+  +PageHeader(pageHeader)
+  
+  .card
+    .card-header
+      +DocCardHeader('Examples')
+    .card-body.bg-light
+      +componentCard
+        +Popover("top")
+        +Popover("right")
+        +Popover("left")
+        +Popover("bottom")
+
+  

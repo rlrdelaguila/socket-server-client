@@ -1,0 +1,91 @@
+extends ../../layouts/LayoutComponent
+include ../../mixins/common/ComingSoon
+
+block append variables
+  - var firstParent ='plugins'
+  - var secondParent = 'map'                 
+  - var currentPage = 'google-map'
+  - var CWD = "../../"
+  - 
+    var pageHeader = {
+      title: 'Google Map',
+      description: `${name} uses Google map with Snazzy Maps, with different color schemes aimed towards web designers and developers.`,
+    }
+prepend scripts
+  script(src!=`https://maps.googleapis.com/maps/api/js?key=${APIGmap}&callback=initMap` async)
+
+block append content
+  +PageHeader(pageHeader)
+
+  .card.mb-3
+    .card-header
+      h5.mb-0 Example
+    .card-body.bg-light
+      +componentCard
+        .googlemap.min-vh-50(data-latlng='48.8583701,2.2922873,17' data-scrollwheel='false', data-icon=`${CWD}assets/img/icons/map-marker.png`, data-zoom='17' data-theme='Default')
+          .marker-content
+            h5 Eiffel Tower
+            p.mb-0
+              | Gustave Eiffel's iconic, wrought-iron 1889 tower,
+              br
+              |  with steps and elevators to observation decks.
+
+  .card.mb-3
+    .card-header
+      h5.mb-1 Javascript
+      p.mb-0 
+        a(href='https://developers.google.com/maps/documentation/javascript/get-api-key' target='_blank').font-sans-serif Get your API key
+        span.d-inline-block.ml-1 &xrarr;
+    .card-body.bg-light
+      +componentCardLib
+        script(src!="https:maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async)
+  .card.mb-3
+    .card-header
+      h5.mb-0 Map color schemes
+    .card-body.bg-light
+      p Change the value of 
+        code data-theme=''
+        |  to any of the followings
+
+      ul
+        li
+          code Default
+        li
+          code Gray
+        li
+          code Midnight
+        li
+          code Hopper
+        li
+          code Beard
+        li
+          code AssassianCreed
+        li
+          code SubtleGray
+        li
+          code Tripitty
+  .card.mb-3
+    .card-header
+      h5.mb-1 Example
+      p.mb-0 With 
+        code AssassianCreed
+        |  scheme
+    .card-body.bg-light
+      +componentCard
+        .googlemap.min-vh-50(data-latlng='48.8583701,2.2922873,17' data-scrollwheel='false' data-icon=`${CWD}assets/img/icons/map-marker.png` data-zoom='17' data-theme='AssassianCreed')
+          .marker-content
+            h5 Eiffel Tower
+            p.mb-0
+              | Gustave Eiffel's iconic, wrought-iron 1889 tower,
+              br
+              |  with steps and elevators to observation decks.
+  .card.mb-3
+    .card-header
+      h5.mb-0 Example of street view
+    .card-body.bg-light
+      +componentCard
+        .googlemap.min-vh-50(data-latlng='43.0795932,-79.0776385' data-pov!={
+          heading: 180,
+          pitch: -30
+        } data-scrollwheel='false' data-icon=`${CWD}assets/img/icons/map-marker.png`  data-zoom='1' data-theme='streetview')
+

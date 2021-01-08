@@ -1,0 +1,94 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Typography
+
+append variables
+  - var firstParent = 'components'
+  - var currentPage = 'typography'
+  -
+    var pageHeader = {
+      title: 'Typography',
+      description: 'Documentation and examples for Bootstrap typography, including global settings, headings, body text, lists, and more.',
+      url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/content/typography/`,
+      linkText: 'Typography on Bootstrap'
+    }
+
+
+block component
+  +PageHeader(pageHeader)
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Font Family')
+        +TypographyFontFamilyDescription.mt-2.mb-0
+    .card-body.bg-light
+      +componentCard
+        +TypographyFontFamilyDemo
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Headings')
+      +TypographyHeadingDescription.mt-2.mb-0
+    .card-body.bg-light
+      +componentCard
+        +TypographyHeadingDemo
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Headings with classes')
+      +TypographyHeadingClassDescription.mt-2.mb-0
+    .card-body.bg-light
+      +componentCard
+        +TypographyHeadingClassDemo
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Customizing headings')
+        +TypographyCustomizeHeadingDescription.mt-2.mb-0
+    .card-body.bg-light
+      +componentCard
+        +TypographyCustomizeHeadingDemo      
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Font Weights')
+    .card-body.bg-light
+        +componentCard
+          +TypographyFontWeightsDemo
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Display headings')
+      +TypographyDisplayHeadingDescription.mt-2.mb-0
+    .card-body.bg-light
+      +componentCard
+        +TypographyDisplayHeadingDemo
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Colors')
+        +TypographyColorsDescription.mt-2.mb-0
+    .card-body.bg-light
+      +componentCard
+        +TypographyColorsDemo 
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Sizes')
+        +TypographySizeDescription.mt-2.mb-0
+    .card-body.bg-light
+      +componentCard
+        +TypographySizeDemo
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Lead')
+      +TypographyLeadDescription.mt-2.mb-0
+    .card-body.bg-light
+      +componentCard
+        +TypographyLeadDemo
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Description list alignment')
+      +TypographyAlignmentDescription.mt-2.mb-0
+    .card-body.bg-light
+      +componentCard
+        +TypographyAlignmentDemo 
+               
+    

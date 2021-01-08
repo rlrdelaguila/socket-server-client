@@ -1,0 +1,23 @@
+extends ../layouts/LayoutComponent
+include ../mixins/utilities/Spacing
+
+append variables
+  - var firstParent = 'utilities'
+  - var currentPage = 'spacing'
+  -
+    var pageHeader = {
+      title: 'Spacing',
+      url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/utilities/spacing/`,
+      linkText: 'Spacing on Bootstrap'
+    }
+
+append content
+  +PageHeader(pageHeader)
+    +SpacingDocHeaderDescription
+  .card
+    .card-header
+      +DocCardHeader('Example')
+    .card-body.bg-light
+      +SpacingDoc
+
+

@@ -1,0 +1,41 @@
+extends ../layouts/LayoutComponent
+include ../mixins/forms/FormControl
+
+append variables
+  - var firstParent = 'forms'              
+  - var currentPage = 'form-control'
+  -
+    var pageHeader = {
+      title: 'Form controls',
+      description: 'Examples and usage guidelines for form control styles, layout options, and custom components for creating a wide variety of forms.',
+      url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/forms/form-control`,
+      linkText: "Form controls on Bootstrap"
+    }
+block component 
+  +PageHeader(pageHeader)
+
+  .card.mb-3
+    .card-header 
+      h5.mb-0(data-anchor) Example
+    .card-body.bg-light
+      +componentCard
+        +ExampleForm
+
+  .card.mb-3
+    .card-header 
+      h5.mb-0(data-anchor) Sizing
+    .card-body.bg-light
+      +componentCard
+        +Sizing
+
+  .card.mb-3
+    .card-header 
+      h5.mb-0(data-anchor) Readonly plain text
+    .card-body.bg-light
+      +ReadonlyText            
+
+  .card.mb-3
+    .card-body.bg-light
+      +componentCard
+        +ReadonlyForm
+

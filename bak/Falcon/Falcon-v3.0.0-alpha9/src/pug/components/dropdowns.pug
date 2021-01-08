@@ -1,0 +1,131 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Dropdowns
+include ../mixins/authentication/LoginForm
+include ../mixins/authentication/SocialButtons
+
+append variables
+  - var firstParent = 'components'              
+  - var currentPage = 'dropdowns'
+  -
+    var pageHeader = {
+      title: 'Dropdown',
+      description: 'Toggle contextual overlays for displaying lists of links and more with the Falcon dropdown plugin.',
+      url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/components/dropdowns/`,
+      linkText: 'Dropdown on Bootstrap'
+    }
+
+
+block component
+
+  +PageHeader(pageHeader)
+  .row.g-0
+    .col-lg-6.pr-lg-2
+      .card.mb-3
+        .card-header
+          +DocCardHeader('Example')
+        .card-body.bg-light
+          +componentCard
+            +DropdownExampleDemo
+
+    .col-lg-6.px-lg-2
+      .card.mb-3
+        .card-header
+          +DocCardHeader('Dropdown Link')
+        .card-body.bg-light
+          +componentCard
+              +DropdownLinkDemo
+
+    .card.mb-3
+      .card-header
+        +DocCardHeader('Button Varient')
+      .card-body.bg-light
+        +componentCard
+          +DropdownButtonVarientDemo
+
+    .card.mb-3
+      .card-header
+        +DocCardHeader('Button Split')
+      .card-body.bg-light
+        +componentCard
+          +DropdownButtonSplitDemo
+          
+    .card.mb-3
+      .card-header
+        +DocCardHeader('Sizing')
+      .card-body.bg-light
+        +componentCard
+          +DropdownSizingDemo
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Directions')
+    .card-body.bg-light
+      +componentCard
+        +DropdownDirectionsDemo
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Menu Items')
+    .card-body.bg-light
+      +componentCard
+        +DropdownMenuItemsDemo
+
+
+  .row.g-0
+    .col-lg-6.pr-lg-2
+      .card.mb-3
+        .card-header
+          +DocCardHeader('Active Link')
+        .card-body.bg-light
+          +componentCard
+            +DropdownActiveLinkDemo
+
+
+    .col-lg-6.pl-lg-2
+      .card.mb-3
+        .card-header
+          +DocCardHeader('Disabled Link')
+        .card-body.bg-light
+          +componentCard
+            +DropdownDisabledLinkDemo
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Alignment')
+    .card-body.bg-light
+      +componentCard    
+        +DropdownAlignmentDemo
+
+  .row.g-0
+    .col-lg-6.pr-lg-2
+      .card.mb-3
+        .card-header
+          +DocCardHeader('Headers')
+        .card-body.bg-light
+          +componentCard
+            +DropdownHeaderDemo
+
+    
+    .col-lg-6.pl-lg-2
+      .card.mb-3
+        .card-header
+          +DocCardHeader('Dividers')
+        .card-body.bg-light
+          +componentCard
+            +DropdownDividerDemo
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Forms')
+    .card-body.bg-light
+      +componentCard    
+        +DropdownFormsDemo
+
+
+
+
+
+
+
+ 
+  

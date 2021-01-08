@@ -1,0 +1,10 @@
+extends ../layouts/LayoutComponent
+include ../mixins/common/ComingSoon
+
+block append variables
+  - var firstParent = 'components'              
+  - var currentPage = 'countup'
+
+block append content
+  .card.mb-3
+    +ComingSoon

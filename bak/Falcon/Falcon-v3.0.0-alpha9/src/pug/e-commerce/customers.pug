@@ -1,0 +1,13 @@
+extends ../layouts/LayoutTheme
+include ../mixins/e-commerce/Customers
+
+append variables
+  - var CWD = '../'
+  - var firstParent ='e-commerce'              
+  - var currentPage = 'customers'
+
+prepend scripts
+  script(src=`${CWD}vendors/list.js/list.min.js`)
+
+append content
+  +Customers

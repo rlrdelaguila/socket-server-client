@@ -1,0 +1,19 @@
+include Mixins
+include ../common/Avatar
+include ../common/Card
+include ../common/Notification
+
+mixin NavbarTop(config)
+  nav.navbar.navbar-light.navbar-glass.navbar-top&attributes(attributes)
+    +NavbarToggleIcon.navbar-toggler.mr-1.mr-sm-3(type='button' data-toggle='collapse' data-target=`#${config.toggleID}`, aria-controls=config.toggleID, aria-expanded='false' aria-label='Toggle Navigation')
+    +NavbarBrand.mr-1.mr-sm-3
+    if config.search
+      +NavbarSearch
+    if config.links || config.simpleNav
+      div(id=config.navbarCollapseID ? config.navbarCollapseID : config.toggleID).collapse.navbar-collapse.scrollbar
+        if config.links
+          +NavbarNavLinks
+        else
+          +SimpleNav
+
+    +NavbarIcons

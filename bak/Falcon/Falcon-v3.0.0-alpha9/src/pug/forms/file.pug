@@ -1,0 +1,33 @@
+extends ../layouts/LayoutComponent
+include ../mixins/forms/File
+
+append variables
+  - var firstParent = 'forms'              
+  - var currentPage = 'file'
+  -
+    var pageHeader = {
+      title: 'File browser',
+      description: 'Use our custom file inputs for consistent cross-browser styling, built-in customization, and lightweight JavaScript.',
+      url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/forms/file`,
+      linkText: "Form's file on Bootstrap"
+    }
+
+block component
+  +PageHeader(pageHeader)
+
+  .card.mb-3
+    .card-header 
+      h5.mb-1(data-anchor) Default
+      p.mb-0 The file input is the most gnarly of the bunch and requires additional JavaScript if you’d like to hook them up with functional Choose file… and selected file name text.
+    .card-body.bg-light
+      +componentCard
+        +Default
+
+  .card.mb-3
+    .card-header 
+      h5.mb-1(data-anchor) Sizing
+      p.mb-0 You may also choose from small and large file inputs to match our similarly sized text inputs.
+    .card-body.bg-light
+      +componentCard
+        +Sizing
+

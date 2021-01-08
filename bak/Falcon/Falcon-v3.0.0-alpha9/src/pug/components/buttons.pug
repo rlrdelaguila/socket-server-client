@@ -1,0 +1,120 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Buttons
+
+append variables
+  - var firstParent = 'components'              
+  - var currentPage = 'buttons'
+  -
+    var pageHeader = [
+      {
+        title: 'Buttons',
+        description: `Use ${name} custom button styles for actions in forms, dialogs, and more with support for multiple sizes, states, and more.`,
+        url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/components/buttons/`,
+        linkText: 'Buttons on Bootstrap'
+      },
+      {
+        title: 'Button Group\n',
+        description: 'Group a series of buttons together on a single line with the button group, and super-power them with JavaScript.',
+        url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/components/button-group/`,
+        linkText: 'Button-Group on Bootstrap'
+      },
+    ]
+  
+block component
+  +PageHeader(pageHeader[0])
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Falcon Buttons')
+      
+    .card-body.bg-light
+      +componentCard
+        +FalconButtonsDemo
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Solid buttons')
+    .card-body.bg-light
+      +componentCard
+        +SolidButtonsDemo      
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Outline buttons')
+        +OutlineButtonDescription.mt-2.mb-0
+
+    .card-body.bg-light
+      +componentCard
+        +ButtonOutlineDemo
+
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Button sizes')
+        +ButtonSizesDescription.mt-2.mb-0
+    .card-body.bg-light
+      +componentCard
+        +ButtonSizesDemo
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Icon Buttons')
+    .card-body.bg-light
+      +componentCard
+        +ButtonIconDemo
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Button Capsule')
+    .card-body.bg-light
+      +componentCard
+        +ButtonCapsuleDemo
+  
+  +PageHeader(pageHeader[1])
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Basic Example')
+        +GroupButtonExampleDescription.mt-2.mb-0
+    .card-body.bg-light
+      +componentCard
+        +ButtonGroupDemo
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Button Toolbar')
+        +ButtonoToolbarDescription.mt-2.mb-0
+    .card-body.bg-light
+      +componentCard
+        +ButtonToolbarDemo
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Button toolbar with input group')
+        +ButtonToolbarGroupDescription.mt-2.mb-0
+    .card-body.bg-light
+      +componentCard
+        +ButtonToolbarWithInputGroupDemo
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Sizing')
+        +ButtonSizingDescription.mt-2.mb-0
+
+    .card-body.bg-light
+      +componentCard
+        +ButtonGroupSizeDemo
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Vertical variation')
+      p.mb-0 Make a set of buttons appear vertically tacked rather than horizontally. Split button dropdowns ae not supported here.
+    .card-body.bg-light
+      +componentCard
+        +ButtonGroupVerticalDemo
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Vertical variation with dropdown')
+    .card-body.bg-light
+      +componentCard
+        +ButtonGroupVerticalWithDropdownDemo

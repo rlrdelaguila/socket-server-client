@@ -1,0 +1,30 @@
+extends ../layouts/LayoutComponent
+include ../mixins/utilities/VerticalAlign
+
+append variables
+  - var CWD = '../';
+  - var firstParent = 'utilities'
+  - var currentPage = 'vertical-align'
+  -
+    var pageHeader = {
+      title: 'Vertical Align',
+      description: 'Easily change the vertical alignment of inline, inline-block, inline-table, and table cell elements.',
+      url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/utilities/vertical-align/`,
+      linkText: 'Vertical align on Bootstrap'
+    }
+append content
+ 
+  +PageHeader(pageHeader)
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Example')
+        +VerticalAlignExampleDescription
+    .card-body.bg-light
+      +componentCard
+       +VerticalAlignExampleDemo
+
+      p.mt-4 With table cells:
+      +componentCard
+        +VerticalAlignExampleTable
+

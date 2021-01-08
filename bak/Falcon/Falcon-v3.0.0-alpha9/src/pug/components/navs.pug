@@ -1,0 +1,44 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Nav
+
+append variables
+  - var firstParent = 'components'              
+  - var currentPage = 'navs'
+  -
+    var pageHeader = {
+      title: 'Navs',
+      description: "Documentation and examples of how to use Bootstrap’s included navigation components.",
+      url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/components/navs/`,
+      linkText: 'Navs on Bootstrap'
+    }
+
+block component
+
+  +PageHeader(pageHeader)
+    
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Horizontal')
+    .card-body.bg-light
+      +NavDemo
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Vertical')
+    .card-body.bg-light
+      +componentCard  
+        +NavDemo.flex-column
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Pills')
+    .card-body.bg-light
+      +componentCard  
+        +NavDemo.nav-pills
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Fill and Justify')
+    .card-body.bg-light
+      +componentCard  
+        +NavFillAndJustifyDemo

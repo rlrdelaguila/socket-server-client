@@ -1,0 +1,11 @@
+extends ../../layouts/LayoutTheme
+include ../../layouts/LayoutBasic
+include ../../mixins/authentication/RegisterBasicContent
+block append variables
+  - var CWD = '../../'
+
+block wrapperContent
+  +LayoutBasic
+    +RegisterBasicContent
+
+

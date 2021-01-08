@@ -1,0 +1,49 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Badges
+
+append variables
+  - var firstParent = 'components'              
+  - var currentPage = 'badges'
+  -
+    var pageHeader = {
+      title: 'Badges',
+      description: 'Documentation and examples for badges, our small count and labeling component.',
+      url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/components/badge/`,
+      linkText: 'Badges on Bootstrap'
+    }
+
+block component
+  
+  +PageHeader(pageHeader)
+  
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Background colors')
+      +BackgroundColorDescription.mt-2.mb-0
+
+    .card-body.bg-light
+      +componentCard
+        +BadgeSolidDemo
+
+  .card.mb-3
+    .card-header  
+      +DocCardHeader('Pill badges')
+        +PillBadgeDescription.mt-2.mb-0
+    .card-body.bg-light
+      +componentCard
+        +BadgePillDemo
+        
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Soft badges')
+    .card-body.bg-light
+      +componentCard
+        +BadgeSoftDemo
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Soft pill badges')
+    .card-body.bg-light
+      +componentCard
+        +BadgeSoftPillDemo
+

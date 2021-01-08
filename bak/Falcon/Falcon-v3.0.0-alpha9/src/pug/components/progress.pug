@@ -1,0 +1,78 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Progress
+
+append variables
+  - var firstParent = 'components'              
+  - var currentPage = 'progress'
+  -
+    var pageHeader = {
+      title: 'Progress Bars',
+      description: `Documentation and examples for using ${name} custom progress bars featuring support for stacked bars, animated backgrounds, and text labels`,
+      url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/components/progress/`,
+      linkText: 'Progress Bars on Bootstrap'
+    }
+  
+block component
+
+  +PageHeader(pageHeader)
+   
+  .row.g-0
+    .col-xl-6.pr-xl-2
+      .card.mb-3
+        .card-header
+          +DocCardHeader('Basic Example')
+        .card-body.bg-light
+          +componentCard
+            +ProgressbarDemo
+    .col-xl-6.pl-xl-2
+      .card.mb-3
+        .card-header
+          +DocCardHeader('Label')
+        .card-body.bg-light
+          +componentCard
+            +ProgressbarDemo({value: 50,display:true})
+        
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Height')
+    .card-body.bg-light
+      +componentCard
+        +ProgressbarDemo({ height:1})
+        +ProgressbarDemo({ height:10})
+        +ProgressbarDemo({ height:20})
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Background')
+    .card-body.bg-light
+      +componentCard
+        +ProgressbarDemo({value: 30}).bg-success
+        +ProgressbarDemo({value: 40}).bg-info
+        +ProgressbarDemo({value: 50}).bg-warning
+        +ProgressbarDemo({value: 60}).bg-danger
+  
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Multiple bars')
+    .card-body.bg-light
+      +componentCard
+        +ProgressbarMultipleColorDemo
+ 
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Striped')
+    .card-body.bg-light
+      +componentCard
+        +ProgressbarDemo({value: 30}).bg-success.progress-bar-striped
+        +ProgressbarDemo({value: 40}).bg-info.progress-bar-striped
+        +ProgressbarDemo({value: 50}).bg-warning.progress-bar-striped
+        +ProgressbarDemo({value: 60}).bg-danger.progress-bar-striped
+        +ProgressbarDemo({value: 70}).bg-primary.progress-bar-striped
+
+  .card
+    .card-header
+      +DocCardHeader('Animated')
+    .card-body.bg-light
+      +ProgressbarAnimatedDescription
+      +componentCard
+        +ProgressbarAnimatedDemo

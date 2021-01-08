@@ -1,0 +1,61 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/ListGroup
+
+append variables
+  - var firstParent = 'components'              
+  - var currentPage = 'list-group'
+  -
+    var pageHeader = {
+      title: 'List Group',
+      description: "List groups are a flexible and powerful component for displaying a series of content. Modify and extend them to support just about any content within.",
+      url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/components/list-group/`,
+      linkText: 'List on Bootstrap'
+    }
+    
+block component
+  +PageHeader(pageHeader)
+    
+  .row.g-0
+    .col-lg-6.pr-lg-2
+      .card.mb-3
+        .card-header
+          +DocCardHeader('Basic Example')
+        .card-body.bg-light
+          +componentCard
+            +ListGroupBasicExampleDemo
+    .col-lg-6.pl-lg-2
+      .card.mb-3
+        .card-header
+          +DocCardHeader('Active Item')
+        .card-body.bg-light
+            +componentCard
+              +ListGroupActiveItemDemo
+    .col-lg-6.pr-lg-2
+      .card.mb-3
+        .card-header
+          +DocCardHeader('List group flush')
+        .card-body.bg-light
+          +componentCard
+            +ListGroupFlushDemo
+
+    .col-lg-6.pl-lg-2
+      .card.mb-3
+        .card-header
+          +DocCardHeader('List group with badge')
+        .card-body.bg-light
+          +componentCard
+           +ListGroupBadgeDemo
+    .col-lg-6.pr-lg-2
+      .card.mb-3
+        .card-header
+          +DocCardHeader('List group background')
+        .card-body.bg-light
+          +componentCard
+            +ListGroupBackgroundDemo
+    .col-lg-6.pl-lg-2
+      .card.mb-3
+        .card-header
+          +DocCardHeader('List group with Link')
+        .card-body.bg-light
+          +componentCard
+            +ListGroupLinkDemo

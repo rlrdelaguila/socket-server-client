@@ -1,0 +1,31 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Collapse
+append variables
+  - var firstParent = 'components'              
+  - var currentPage = 'collapse'
+  -
+    var pageHeader = {
+      title: 'Collapse',
+      description: "Toggle the visibility of content with a few classes and Bootstrap's JavaScript plugins.",
+      url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/components/collapse/`,
+      linkText: 'Collapse on Bootstrap'
+    }
+
+block component
+
+  +PageHeader(pageHeader)
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Example')
+    .card-body.bg-light
+      +componentCard
+        +CollapseExampleDemo
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Multiple Targets')
+        +MultipleTargetsDescription.mt-2.mb-0
+    .card-body.bg-light
+      +componentCard
+        +MultipleTargetsDemo

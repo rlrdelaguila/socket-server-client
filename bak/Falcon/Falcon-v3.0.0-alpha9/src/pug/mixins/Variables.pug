@@ -1,0 +1,270 @@
+append variables
+  - var title = 'Falcon | Dashboard & Web App Templat';
+  - var theme = `${name}-${version}`;
+  - var bootstrapVersion = '5.0';
+  - var attrsMain = { id: 'top', class: 'main' };
+  - var attrsLayout = { class: 'container', 'data-layout': ENV === 'PROD' ? 'container' : false }
+  - var colors = ['primary', 'secondary', 'success', 'info', 'warning', 'danger', 'light', 'dark'];
+  - var grays = ['black', 1100, 1000, 900, 800, 700, 600, 500, 400, 300, 200, 100, 'white'];
+  - var colorsAll = colors.concat(grays);
+  - var footer = true;
+  -
+    var sitemap = {
+      home: {
+        icon: 'fas fa-chart-pie',
+        inners: {
+          dashboard: 'dashboard',
+          'dashboard-alt': 'dashboard-alt',
+          feed: 'feed',
+          landing: 'landing',
+        }
+      },
+      pages: {
+        icon: 'fas fa-copy',
+        inners: {
+          activity: 'activity',
+          associations: 'associations',
+          billing: 'billing',
+          errors: {
+            inners: {
+              '404': '404',
+              '500': '500'
+            }
+          },
+          'event-create': 'event-create',
+          'event-detail': 'event-details',
+          events: 'events',
+          faq: 'faq',
+          'invite-people': 'invite-people',
+          invoice: 'invoice',
+          notifications: 'notifications',
+          people: 'people',
+          pricing: 'pricing',
+          'pricing-alt': 'pricing-alt',
+          profile: 'profile',
+          settings: 'settings',
+          starter: 'starter',
+        }
+      },
+      chat: {
+        icon: 'fas fa-comments',
+        link: 'chat'
+      },
+      kanban: {
+        icon: 'fab fa-trello',
+        link: 'kanban',
+      },
+      calendar: {
+        icon: 'fas fa-calendar-alt',
+        link: 'calendar',
+      },
+      email: {
+        icon: 'fas fa-envelope-open',
+        inners: {
+          inbox: 'inbox',
+          'email-detail': 'email-detail',
+          compose: 'compose'
+        }
+      },
+      authentication: {
+        icon: 'fas fa-unlock-alt',
+        inners: {
+          basic: {
+            inners: {
+              login: 'login',
+              logout: 'logout',
+              register: 'register',
+              'forgot-password': 'forgot-password',
+              'reset-password': 'reset-password',
+              'confirm-mail': 'confirm-mail',
+              'lock-screen': 'lock-screen',
+            }
+          },
+          card: {
+            inners: {
+              login: 'login',
+              logout: 'logout',
+              register: 'register',
+              'forgot-password': 'forgot-password',
+              'reset-password': 'reset-password',
+              'confirm-mail': 'confirm-mail',
+              'lock-screen': 'lock-screen',
+            }
+          },
+          split: {
+            inners: {
+              login: 'login',
+              logout: 'logout',
+              register: 'register',
+              'forgot-password': 'forgot-password',
+              'reset-password': 'reset-password',
+              'confirm-mail': 'confirm-mail',
+              'lock-screen': 'lock-screen',
+            }
+          },
+          wizard: 'wizard'
+        }
+      },
+      'e-commerce': {
+        icon: 'fas fa-cart-plus',
+        inners: {
+          checkout: 'checkout',
+          'customer-details': 'customer-details',
+          customers: 'customers',
+          'order-details': 'order-details',
+          orders: 'orders',
+          'product-details': 'product-details',
+          'product-grid': 'product-grid',
+          'product-list': 'product-list',
+          'shopping-cart': 'shopping-cart',
+        }
+      },
+      widgets: {
+        icon: 'fas fa-poll',
+        link: 'widgets',
+      },
+      components: {
+        icon: 'fas fa-puzzle-piece',
+        inners: {
+          accordion: 'accordion',
+          alerts: 'alerts',
+          avatar: 'avatar',
+          background: 'background',
+          badges: 'badges',
+          breadcrumb: 'breadcrumb',
+          'bulk-select': 'bulk-select',
+          buttons: 'buttons',
+          cards: 'cards',
+          carousel: 'carousel',
+          'close-button': 'close-button',
+          collapse: 'collapse',
+          'cookie-notice':{
+            link: 'cookie-notice',
+            badge: {
+              type: 'success',
+              text: 'New'
+            }
+          },
+          dropdowns: 'dropdowns',
+          fancyscroll: { disabled: true },
+          fancytab: { disabled: true },
+          figures: 'figures',
+          hoverbox: 'hoverbox',
+          images: 'images',
+          'list-group': 'list-group',
+          modals: 'modals',
+          navbar: {
+            inners: {
+              default: 'default',
+              vertical: 'vertical',
+              'darken-on-scroll': 'darken-on-scroll',
+              top: 'top',
+              combo: 'combo',
+            },
+          },
+          navs: 'navs',
+          'page-headers': 'page-headers',
+          pagination: 'pagination',
+          popovers: 'popovers',
+          progress: 'progress',
+          scrollspy: 'scrollspy',
+          search: {
+            link: 'search',
+            badge: {
+              type: 'success',
+              text: 'New'
+            }
+          },
+          sidepanel: 'sidepanel',
+          spinners: 'spinners',
+          tables: 'tables',
+          tabs: 'tabs',
+          toasts: 'toasts',
+          tooltips: 'tooltips',
+          typography: 'typography',
+        }
+      },
+      forms: {
+        icon: 'fas fa-align-left',
+        inners: {
+          checks: 'checks',
+          file: 'file',
+          'form-control': 'form-control',
+          'input-group': 'input-group',
+          layout: 'layout',
+          overview: 'overview',
+          range: 'range',
+          select: 'select',
+          validation: 'validation'
+        }
+      },
+      utilities: {
+        icon: 'fas fa-fire',
+        inners: {
+          borders: 'borders',
+          clearfix: 'clearfix',
+          'colored-links': 'colored-links',
+          colors: 'colors',
+          display: 'display',
+          embed: 'embed',
+          flex: 'flex',
+          float: 'float',
+          grid: 'grid',
+          position: 'position',
+          sizing: 'sizing',
+          spacing: 'spacing',
+          'stretched-link': 'stretched-link',
+          'text-truncation': 'text-truncation',
+          'vertical-align': 'vertical-align',
+          visibility: 'visibility',
+        }
+      },
+      plugins: {
+        icon: 'fas fa-plug',
+        inners: {
+          anchor: 'anchor',
+          countup: 'countup',
+          choices: 'choices',
+          'date-picker': 'date-picker',
+          draggable: 'draggable',
+          dropzone: 'dropzone',
+          echarts: 'echarts',
+          'emoji-button': 'emoji-button',
+          fontawesome: 'fontawesome',
+          fullcalendar: 'fullcalendar',
+          glightbox: 'glightbox',
+          progressbar: 'progressbar',
+          'inline-player': 'inline-player',
+          list:'list',
+          lottie:'lottie',
+          'typed-text': 'typed-text',
+          'tinymce': 'tinymcer',
+          swiper: 'swiper',
+          rater: 'rater',
+          map: {
+            inners:{
+              'leaflet-map': 'leaflet-map',
+              'google-map': 'google-map',
+            }
+          },
+        }
+      },
+      documentation: {
+        icon: 'fas fa-book',
+        inners: {
+          'getting-started': 'getting-started',
+          'file-structure': 'file-structure',
+          customization: 'customization',
+          'dark-mode': { disabled: true },
+          'fluid-layout': 'fluid-layout',
+          gulp: 'gulp',
+          RTL: 'RTL',
+          plugins: 'plugins',
+          'design-file': 'design-file',
+        }
+      },
+      changelog: {
+        icon: 'fas fa-code-branch',
+        link: 'changelog'
+      }
+    };

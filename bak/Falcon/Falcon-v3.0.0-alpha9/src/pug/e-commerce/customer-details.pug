@@ -1,0 +1,12 @@
+extends ../layouts/LayoutTheme
+include ../mixins/e-commerce/CustomerDetails
+
+append variables
+  - var CWD = '../'
+  - var firstParent = 'e-commerce'
+  - var currentPage = 'customer-details'
+
+append content
+  +CustomerDetailsHeader
+  +CustomerDetails
+  +CustomerDetailsLogs

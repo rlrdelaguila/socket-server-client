@@ -1,0 +1,24 @@
+extends ../layouts/LayoutComponent
+include ../mixins/utilities/Float
+
+append variables
+  - var firstParent = 'utilities'
+  - var currentPage = 'float'
+  -
+    var pageHeader = {
+      title: 'Float',
+      description: 'Toggle floats on any element, across any breakpoint, using our responsive float utilities',
+      url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/utilities/float/`,
+      linkText: 'Float on Bootstrap'
+    }
+
+append content
+  +PageHeader(pageHeader)
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Overview')
+        +FloatHeaderDescription.mt-2.mb-0
+    .card-body.bg-light
+      +componentCard
+        +FloatDemo

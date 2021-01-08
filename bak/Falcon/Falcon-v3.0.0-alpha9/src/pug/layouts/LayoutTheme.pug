@@ -1,0 +1,36 @@
+extends Layout
+include ../mixins/navbars/NavbarVertical
+include ../mixins/navbars/NavbarTop
+include ../mixins/common/Logo
+include ../mixins/common/Footer
+include ../mixins/common/SettingsPanel
+include ../mixins/authentication/AuthenticationModal
+include ../mixins/layouts/LayoutContentProd
+include ../mixins/layouts/LayoutContent
+include ../mixins/Variables
+
+
+append headScripts
+  script(src=`${CWD}assets/js/config.navbar-vertical.js`)
+
+block styles
+  if ENV === 'PROD'
+    +ThemeStylesProd
+  else
+    +ThemeStyle
+
+prepend scripts
+  script(src=`${CWD}vendors/fontawesome/all.min.js`)
+  script(src=`${CWD}vendors/lodash/lodash.min.js`)
+  script(src=`https://polyfill.io/v3/polyfill.min.js?features=window.scroll`)
+  script(src=`${CWD}vendors/list.js/list.min.js`)
+
+append footerStyles
+  link(href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700%7cPoppins:100,200,300,400,500,600,700,800,900&display=swap' rel='stylesheet')
+
+
+block mainContent 
+  if ENV === 'PROD'
+    +LayoutContentProd
+  else
+    +LayoutContent

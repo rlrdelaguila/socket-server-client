@@ -259,9 +259,6 @@ object fClient: TfClient
       Align = alTop
       Caption = 'Server Config'
       TabOrder = 0
-      ExplicitLeft = 1
-      ExplicitTop = 1
-      ExplicitWidth = 573
       object Label1: TLabel
         Left = 76
         Top = 22
@@ -305,9 +302,6 @@ object fClient: TfClient
       Align = alBottom
       Caption = 'Messages'
       TabOrder = 1
-      ExplicitLeft = 1
-      ExplicitTop = 269
-      ExplicitWidth = 573
       object Panel3: TPanel
         AlignWithMargins = True
         Left = 3
@@ -324,7 +318,6 @@ object fClient: TfClient
         BevelOuter = bvNone
         ShowCaption = False
         TabOrder = 0
-        ExplicitWidth = 450
         object edtMessage1: TEdit
           AlignWithMargins = True
           Left = 0
@@ -337,7 +330,6 @@ object fClient: TfClient
           Margins.Bottom = 1
           Align = alTop
           TabOrder = 0
-          ExplicitWidth = 450
         end
         object edtMessage2: TEdit
           AlignWithMargins = True
@@ -351,7 +343,6 @@ object fClient: TfClient
           Margins.Bottom = 1
           Align = alTop
           TabOrder = 1
-          ExplicitWidth = 450
         end
         object edtMessage3: TEdit
           AlignWithMargins = True
@@ -365,7 +356,6 @@ object fClient: TfClient
           Margins.Bottom = 0
           Align = alTop
           TabOrder = 2
-          ExplicitWidth = 450
         end
       end
       object Panel4: TPanel
@@ -384,7 +374,6 @@ object fClient: TfClient
         Caption = 'Panel4'
         ShowCaption = False
         TabOrder = 1
-        ExplicitLeft = 455
         object btnMessage1: TButton
           AlignWithMargins = True
           Left = 0
@@ -456,10 +445,6 @@ object fClient: TfClient
       ReadOnly = True
       TabOrder = 2
       Zoom = 100
-      ExplicitLeft = 2
-      ExplicitTop = 57
-      ExplicitWidth = 571
-      ExplicitHeight = 211
     end
   end
   object cSocket: TClientSocket

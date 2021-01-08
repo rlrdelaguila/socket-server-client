@@ -1,0 +1,10 @@
+extends ../../layouts/LayoutTheme
+include ../../layouts/LayoutBasic
+include ../../mixins/authentication/ConfirmMailContent
+  
+block append variables
+  - var CWD = '../../'
+
+block wrapperContent
+  +LayoutBasic
+    +ConfirmMailContent.text-center

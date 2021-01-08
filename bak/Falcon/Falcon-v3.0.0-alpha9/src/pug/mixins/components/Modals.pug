@@ -1,0 +1,16 @@
+mixin ModalExampleDemo
+  // Button trigger modal
+  = '\n'
+  button.btn.btn-primary(type='button' data-toggle='modal' data-target='#exampleModal') Launch demo modal
+  // Modal
+  #exampleModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+    .modal-dialog(role='document')
+      .modal-content
+        .modal-header
+          h5#exampleModalLabel.modal-title Modal Title
+          button.btn-close(type='button' data-dismiss='modal' aria-label='Close')
+        .modal-body
+          p Woohoo, you're reading this text in a modal!
+        .modal-footer
+          button.btn.btn-secondary.btn-sm(type='button' data-dismiss='modal') Close
+          button.btn.btn-primary.btn-sm(type='button') Save changes

@@ -1,0 +1,25 @@
+mixin LayoutContent  
+
+  div()&attributes(attrsLayout)
+    block wrapperContent
+      block beforeContent
+        block navbarVertical
+          +NavbarVertical
+
+      .content()&attributes(attrsContent)
+
+        block navbarTop 
+          +NavbarTop({
+            toggleID: 'navbarVerticalCollapse',
+            links: false,
+            search: true
+          }).navbar-expand
+            
+        block content
+        if footer
+          +Footer  
+
+      block afterContent
+        +SettingsPanel
+        +AuthenticationModal
+        

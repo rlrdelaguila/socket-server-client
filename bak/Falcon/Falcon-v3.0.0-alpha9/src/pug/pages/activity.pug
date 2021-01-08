@@ -1,0 +1,11 @@
+extends ../layouts/LayoutTheme
+include ../mixins/common/Notification
+include ../mixins/pages/profile/Activity
+
+append variables
+  - var CWD = '../'
+  - var firstParent = 'pages'              
+  - var currentPage = 'activity' 
+
+append content
+  +Activity

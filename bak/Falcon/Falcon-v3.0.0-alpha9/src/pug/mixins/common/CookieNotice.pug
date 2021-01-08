@@ -1,0 +1,15 @@
+//---------------------------------------
+  |  Cookie Notice
+//---------------------------------------
+mixin CookieNotice
+  .toast.bg-white.hide.notice#cookie-notice(role='alert', data-options!={ autoShow: true, autoShowDelay: 3000, showOnce: true, cookieExpireTime: 7200000 } data-autohide="false" aria-live='assertive' aria-atomic='true')
+    .toast-body.d-lg-flex.justify-content-center.align-items-center.text-center.px-5
+      button.btn-close.position-absolute.top-0.right-0.p-2.mr-2(type='button' data-dismiss='toast' aria-label='Close')
+      img(src=`${CWD}assets/img/icons/cookie.png`, width=20 alt="").mr-2
+      p.mb-2.mb-lg-0 
+        | Our site uses cookies. By continuing to use our site, you agree to our 
+        a(href=`#!`).text-decoration-underline Cookie Policy
+        |.
+      button.btn.btn-primary.btn-sm.ml-3(type='button' data-dismiss='toast' aria-label='Close') Ok, I Understand
+
+

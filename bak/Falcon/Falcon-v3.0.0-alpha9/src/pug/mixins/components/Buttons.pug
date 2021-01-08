@@ -1,0 +1,302 @@
+mixin FalconButtonsDemo
+  each color in colors
+    if color !== 'secondary' && color !== 'light' && color !== 'dark'
+      button.btn(type = 'button' class=`btn-falcon-${color}`).mr-1.mb-1
+        +cleanText(color)
+      = '\n'
+  button.btn.btn-falcon-default.mr-1.mb-1(type = 'button')
+    +cleanText('default')
+  
+mixin SolidButtonsDemo
+  each color in colors
+    button.btn(type='button' class=`btn-${color}`).mr-1.mb-1
+      +cleanText(color)
+    = '\n'
+  button.btn.btn-link.mr-1.mb-1(type = 'button')
+    +cleanText('link')  
+  = '\n'
+
+mixin OutlineButtonDescription
+  p&attributes(attributes) In need of a button, but not the hefty background colors they bring? Replace the default modifier classes with the 
+    code .btn-outline-*
+    |  ones to remove all background images and colors on any button.
+
+mixin ButtonOutlineDemo
+  each color in colors
+    button.btn(type='button' class=`btn-outline-${color}`).mr-1.mb-1
+      +cleanText(color)
+    = '\n'
+mixin ButtonSizesDescription
+  p&attributes(attributes) Fancy larger or smaller buttons? Add 
+    code .btn-lg
+    |  or 
+    code .btn-sm
+    |  for additional sizes.
+
+mixin ButtonSizesDemo
+  .btn.btn-secondary.btn-sm Small
+  .btn.btn-secondary Regular
+  .btn.btn-secondary.btn-lg Large
+
+mixin ButtonIconDemo
+  button(type='button').btn.btn-falcon-default.btn-sm.mr-1.mb-1
+    = '\n'
+    span.fas.fa-plus.mr-1(data-fa-transform="shrink-3")
+    | Small
+    = '\n'
+  = '\n'
+  button(type='button').btn.btn-falcon-default.mr-1.mb-1
+    = '\n'
+    span.fas.fa-plus.mr-1(data-fa-transform="shrink-3")
+    | Regular
+    = '\n'
+  = '\n'
+  button(type='button').btn.btn-falcon-default.btn-lg.mr-1.mb-1
+    = '\n'
+    span.fas.fa-plus.mr-1(data-fa-transform="shrink-3")
+    | Large
+    = '\n'
+  = '\n'
+  hr
+  = '\n'
+
+  button(type='button').btn.btn-primary.mr-1.mb-1
+    = '\n'
+    span.fas.fa-plus.mr-1(data-fa-transform="shrink-3")
+    | Regular
+    = '\n'
+  = '\n'
+  button(type='button').btn.btn-outline-primary.mr-1.mb-1
+    = '\n'
+    span.fas.fa-plus.mr-1(data-fa-transform="shrink-3")
+    | Outline
+    = '\n'
+  hr
+  = '\n'
+  button(type='button').btn.btn-primary.mr-1.mb-1
+    = '\n'
+    | Delete
+    span.fas.fa-trash.ml-1(data-fa-transform="shrink-3")
+    = '\n'
+
+
+mixin ButtonCapsuleDemo
+  button(type='button').btn.btn-falcon-default.rounded-pill.mr-1.mb-1 Example
+    = '\n'
+  button(type='button').btn.btn-falcon-default.rounded-pill.mr-1.mb-1
+    = '\n'
+    span.fas.fa-align-left.mr-1(data-fa-transform="shrink-3")
+    | Icon Left
+  = '\n'
+  button(type='button').btn.btn-falcon-default.rounded-pill.mr-1.mb-1
+    = '\n'
+    | Icon Right
+    span.fas.fa-align-right.ml-1(data-fa-transform="shrink-3")
+    = '\n'
+  button.ml-1(type='button').btn.btn-outline-primary.rounded-pill.mr-1.mb-1 Outline
+  = '\n'
+  hr
+  = '\n'
+  button(type='button').btn.btn-sm.btn-falcon-default.rounded-pill.mr-1.mb-1 Capsule Small
+  = '\n'
+  button(type='button').btn.btn-falcon-default.rounded-pill.mr-1.mb-1 Capsule Regular
+  = '\n'
+  button(type='button').btn.btn-lg.btn-falcon-default.rounded-pill.mr-1.mb-1 Capsule Large
+
+mixin GroupButtonExampleDescription
+  p&attributes(attributes) Wrap a series of buttons with
+    code .btn
+    |  in
+    code .btn-group
+    | . Add on optional JavaScript radio and checkbox style behavior with
+
+mixin ButtonGroupDemo
+  .btn-group&attributes(attributes)(role='group' aria-label='Basic example')
+    = '\n'
+    button.btn.btn-secondary(type='button') Left
+    = '\n'
+    button.btn.btn-secondary(type='button') Middle
+    = '\n'
+    button.btn.btn-secondary(type='button') Right
+    = '\n'
+
+mixin ButtonoToolbarDescription
+  p&attributes(attributes) Combine sets of button groups into button toolbars for more complex components. Use utility classes as needed to space out groups, buttons, and more.
+
+mixin ButtonToolbarDemo
+  .btn-toolbar&attributes(attributes)(role='toolbar' aria-label='Toolbar with button groups')
+    .btn-group.mr-2.mb-2(role='group' aria-label='First group')
+      = '\n'
+      button.btn.btn-secondary(type='button') 1
+      = '\n'
+      button.btn.btn-secondary(type='button') 2
+      = '\n'
+      button.btn.btn-secondary(type='button') 3
+      = '\n'
+      button.btn.btn-secondary(type='button') 4
+      = '\n'
+    .btn-group.mb-2.mr-2(role='group' aria-label='Second group')
+      = '\n'
+      button.btn.btn-secondary(type='button') 5
+      = '\n'
+      button.btn.btn-secondary(type='button') 6
+      = '\n'
+      button.btn.btn-secondary(type='button') 7
+      = '\n'
+    .btn-group.mb-2(role='group' aria-label='Third group')
+      = '\n'
+      button.btn.btn-secondary(type='button') 8
+      = '\n'
+
+mixin ButtonToolbarGroupDescription
+  p&attributes(attributes) Feel free to mix input groups with button groups in your toolbars. Similar to the example above, you'll likely need some utilities though to space things properly.
+
+mixin ButtonToolbarWithInputGroupDemo
+  .btn-toolbar.mb-3(role='toolbar' aria-label='Toolbar with button groups')
+    .btn-group.mb-2.mr-2(role='group' aria-label='First group')
+      = '\n'
+      button.btn.btn-secondary(type='button') 1
+      = '\n'
+      button.btn.btn-secondary(type='button') 2
+      = '\n'
+      button.btn.btn-secondary(type='button') 3
+      = '\n'
+      button.btn.btn-secondary(type='button') 4
+      = '\n'
+    .input-group.mb-2
+      #btnGroupAddon.input-group-text @
+      = '\n'
+      input.form-control(type='text' placeholder='Input group example' aria-label='Input group example' aria-describedby='btnGroupAddon')
+  .btn-toolbar.justify-content-between(role='toolbar' aria-label='Toolbar with button groups')
+    .btn-group.mb-2(role='group' aria-label='First group')
+      = '\n'
+      button.btn.btn-secondary(type='button') 1
+      = '\n'
+      button.btn.btn-secondary(type='button') 2
+      = '\n'
+      button.btn.btn-secondary(type='button') 3
+      = '\n'
+      button.btn.btn-secondary(type='button') 4
+    .input-group.mb-2
+      #btnGroupAddon2.input-group-text @
+      = '\n'
+      input.form-control(type='text' placeholder='Input group example' aria-label='Input group example' aria-describedby='btnGroupAddon2')
+
+mixin ButtonSizingDescription
+  p&attributes(attributes) Insteam of aplying button sizing classes to every button in a group, just add 
+    code .btn-gorup-*  
+    | to each 
+    code .btn-group
+    | , including each one when nesting multiple groups.
+
+mixin ButtonGroupVerticalDemo
+  .btn-group-vertical&attributes(attributes)(role='group' aria-label='Vertical button group')
+    = '\n'
+    button.btn.btn-secondary(type='button') Button
+    = '\n'
+    button.btn.btn-secondary(type='button') Button
+    = '\n'
+    button.btn.btn-secondary(type='button') Button
+    = '\n'
+    button.btn.btn-secondary(type='button') Button
+    = '\n'
+    button.btn.btn-secondary(type='button') Button
+    = '\n'
+    button.btn.btn-secondary(type='button') Button
+    = '\n'
+
+mixin ButtonGroupSizeDemo
+  .btn-group.btn-group-lg(role='group' aria-label='...')
+    = '\n'
+    button.btn.btn-secondary(type='button') Left
+    = '\n'
+    button.btn.btn-secondary(type='button') Middle
+    = '\n'
+    button.btn.btn-secondary(type='button') Right
+    = '\n'
+  .btn-group.mt-2(role='group' aria-label='...')
+    = '\n'
+    button.btn.btn-secondary(type='button') Left
+    = '\n'
+    button.btn.btn-secondary(type='button') Middle
+    = '\n'
+    button.btn.btn-secondary(type='button') Right
+    = '\n'
+  .btn-group.btn-group-sm.mt-2(role='group' aria-label='...')
+    = '\n'
+    button.btn.btn-secondary(type='button') Left
+    = '\n'
+    button.btn.btn-secondary(type='button') Middle
+    = '\n'
+    button.btn.btn-secondary(type='button') Right
+    = '\n'
+
+mixin ButtonGroupVerticalDemo
+  .btn-group-vertical&attributes(attributes)(role='group' aria-label='Vertical button group')
+    = '\n'
+    button.btn.btn-secondary(type='button') Button
+    = '\n'
+    button.btn.btn-secondary(type='button') Button
+    = '\n'
+    button.btn.btn-secondary(type='button') Button
+    = '\n'
+    button.btn.btn-secondary(type='button') Button
+    = '\n'
+    button.btn.btn-secondary(type='button') Button
+    = '\n'
+    button.btn.btn-secondary(type='button') Button
+    = '\n'
+
+
+mixin ButtonGroupVerticalWithDropdownDemo
+  .btn-group-vertical&attributes(attributes)(role='group' aria-label='Vertical button group')
+    = '\n'
+    button.btn.btn-secondary(type='button') Button
+    = '\n'
+    button.btn.btn-secondary(type='button') Button
+    = '\n'
+    .btn-group(role='group')
+      = '\n'
+      button#btnGroupVerticalDrop1.btn.btn-secondary.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+        | Dropdown
+      .dropdown-menu(aria-labelledby='btnGroupVerticalDrop1')
+        = '\n'
+        a.dropdown-item(href='#') Dropdown link
+        = '\n'
+        a.dropdown-item(href='#') Dropdown
+        = '\n'
+    = '\n'
+    button.btn.btn-secondary(type='button') Button
+    = '\n'
+    button.btn.btn-secondary(type='button') Button
+    = '\n'
+    .btn-group(role='group')
+      = '\n'
+      button#btnGroupVerticalDrop2.btn.btn-secondary.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+        | Dropdown
+
+      .dropdown-menu(aria-labelledby='btnGroupVerticalDrop2')
+        a.dropdown-item(href='#') Dropdown link
+        = '\n'
+        a.dropdown-item(href='#') Dropdown link
+        = '\n'
+    .btn-group(role='group')
+      = '\n'
+      button#btnGroupVerticalDrop3.btn.btn-secondary.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+        | Dropdown
+      = '\n'
+      .dropdown-menu(aria-labelledby='btnGroupVerticalDrop3')
+        a.dropdown-item(href='#') Dropdown link
+        = '\n'
+        a.dropdown-item(href='#') Dropdown link
+        = '\n'
+    .btn-group(role='group')
+      = '\n'
+      button#btnGroupVerticalDrop4.btn.btn-secondary.dropdown-toggle(type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+        | Dropdown
+      .dropdown-menu(aria-labelledby='btnGroupVerticalDrop4')
+        = '\n'
+        a.dropdown-item(href='#') Dropdown link
+        = '\n'
+        a.dropdown-item(href='#') Dropdown link
+        = '\n'  

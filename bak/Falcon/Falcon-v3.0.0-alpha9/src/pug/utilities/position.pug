@@ -1,0 +1,37 @@
+extends ../layouts/LayoutComponent
+include ../mixins/utilities/Position
+
+append variables
+  - var firstParent = 'utilities'
+  - var currentPage = 'position'
+  -
+    var pageHeader = {
+      title: 'Position',
+      description: 'Use these shorthand utilities for quickly configuring the position of an element.',
+      url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/utilities/position/`,
+      linkText: 'Position on Bootstrap'
+    }
+
+append content
+  +PageHeader(pageHeader)
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Common values')
+        +PositionCommonValuesDescription
+    .card-body.bg-light
+      +PositionDemo
+              
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Arrange Elements')
+        +PositionArrangeElementsDescription.mt-2.mb-0
+    .card-body.bg-light
+      +PositionArrangeElementsDemo
+              
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Center Elements')
+        +PositionCenterElementsDescription.mt-2.mb-0
+    .card-body.bg-light
+      +PositionCenterElementsDemo
+              

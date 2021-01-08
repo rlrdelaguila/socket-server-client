@@ -1,0 +1,33 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Tabs
+
+append variables
+  - var firstParent = 'components'              
+  - var currentPage = 'tabs'
+  -
+    var pageHeader = {
+      title: 'Tabs',
+      description: "Takes the basic nav and adds the <code>.nav-tabs</code> class to generate a tabbed interface. Use them to create tabbable regions with our tab JavaScript plugin.",
+      url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/components/navs/#tabs`,
+      linkText: 'Tabs on Bootstrap'
+    }
+ 
+append content
+  +PageHeader(pageHeader)
+    
+  .row.g-0
+    .col-xl-6.pr-xl-2
+      .card.mb-3
+        .card-header  
+          +DocCardHeader('Basic Example')
+        .card-body.bg-light
+          +componentCard
+            +TabsBasicExampleDemo
+
+    .col-xl-6.pl-xl-2
+        .card.mb-3
+          .card-header  
+            +DocCardHeader('Pills')
+          .card-body.bg-light
+            +componentCard
+              +TabsPillDemo

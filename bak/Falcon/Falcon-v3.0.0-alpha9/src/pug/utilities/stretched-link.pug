@@ -1,0 +1,33 @@
+extends ../layouts/LayoutComponent
+include ../mixins/utilities/StretchedLink
+
+append variables
+  - var CWD = '../';
+  - var firstParent = 'utilities'
+  - var currentPage = 'stretched-link'
+  -
+    var pageHeader = {
+      title: 'Stretched Link',
+      description: 'Make any HTML element or Bootstrap component clickable by “stretching” a nested link via CSS.',
+      url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/helpers/stretched-link/`,
+      linkText: 'Stretched-link on Bootstrap'
+    }
+append content
+  +PageHeader(pageHeader)
+
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Example')
+        +StretchedLinkExampleDescription.mt-2.mb-0
+    .card-body.bg-light
+      +componentCard
+        +StretchedLinkExampleDemo
+        
+  .card
+    .card-header
+      +StretchedLinkContainingBlockHeader
+    .card-body.bg-light
+      +componentCard
+        +StretchedLinkContainingBlockDemo
+    
+          

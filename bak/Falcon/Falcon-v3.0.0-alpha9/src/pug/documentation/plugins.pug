@@ -1,0 +1,33 @@
+extends ../layouts/LayoutComponent
+include ../mixins/documentation/Plugins
+
+block append variables
+  - var firstParent = 'documentation'              
+  - var currentPage = 'plugins'
+
+block append content
+  +PageHeader({title:"Plugin"})
+  .card.mb-3
+    .card-header
+      h5.mb-0(data-anchor) Adding new plugins
+    .card-body.bg-light
+      p.mb-0 Adding a new plugin to your theme is simple.Here are two ways you can do that.
+
+  .card.mb-3
+    .card-header
+      h5.mb-0(data-anchor) Simple approach
+    .card-body.bg-light
+      +SimpleApproach.mb-0
+  .card.mb-3
+    .card-header
+      h5.mb-0(data-anchor) Using NPM
+    .card-body.bg-light
+      +NpmApproach
+
+  +PageHeader({
+    title: 'Built-in plugins'
+  })
+
+  +Plugins
+
+

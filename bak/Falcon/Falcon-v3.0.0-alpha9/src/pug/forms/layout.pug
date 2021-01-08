@@ -1,0 +1,64 @@
+extends ../layouts/LayoutComponent
+include ../mixins/forms/Layout
+
+append variables
+  - var firstParent = 'forms'              
+  - var currentPage = 'layout'
+  -
+    var pageHeader = {
+      title: 'Layout',
+      description: 'Give your forms some structure—from inline to horizontal to custom grid implementations—with our form layout options.',
+      url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/forms/layout`,
+      linkText: "Form's layout on Bootstrap"
+    }
+
+block component
+  +PageHeader(pageHeader)
+
+  .card.mb-3
+    .card-header 
+      +DocCardHeader('Utilities')
+        +UtilitiesText
+    .card-body.bg-light
+      +componentCard
+        +UtilitiesExample
+
+  .card.mb-3
+    .card-header 
+      +DocCardHeader('Form grid')
+        +FormGridText
+    .card-body.bg-light
+      +componentCard
+        +FormGridExample  
+
+  .card.mb-3
+    .card-header 
+      +DocCardHeader('Gutters')
+        +GuttersText
+    .card-body.bg-light
+      +componentCard
+        +GuttersExample  
+
+  .card.mb-3
+    .card-header 
+      +DocCardHeader('Horizontal form')
+        +HorizontalformText
+    .card-body.bg-light
+      +componentCard
+        +HorizontalformExample                
+
+  .card.mb-3
+    .card-header 
+      +DocCardHeader('Horizontal form label sizing')
+        +HorizontalSizing
+    .card-body.bg-light
+      +componentCard
+        +HorizontalSizingExample  
+
+  .card.mb-3
+    .card-header 
+      +DocCardHeader('Inline forms')
+        +InlineForms
+    .card-body.bg-light
+      +componentCard
+        +InlineformsExample          

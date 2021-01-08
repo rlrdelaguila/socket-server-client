@@ -1,0 +1,21 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Scrollspy
+
+append variables
+  - var firstParent = 'components'
+  - var currentPage = 'scrollspy'
+  - var attrsBody = { 'data-spy': 'scroll', 'data-target': '#v-pills', 'data-offset': 85 };
+  -
+    var pageHeader = {
+      title: 'Scrollspy',
+      description: "Automatically update Bootstrap navigation or list group components based on scroll position to indicate which link is currently active in the viewport.",
+      url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/components/scrollspy/`,
+      linkText: 'Scrollspy on Bootstrap'
+    }
+
+block component
+  +PageHeader(pageHeader)
+
+  .card
+    .card-body
+      +ScrollspyDemo

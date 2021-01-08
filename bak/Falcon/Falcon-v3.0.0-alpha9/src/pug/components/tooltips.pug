@@ -1,0 +1,25 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Tooltips
+
+append variables
+  - var firstParent = 'components'              
+  - var currentPage = 'tooltips'
+  -
+    var pageHeader = {
+      title: 'Tooltips',
+      description: 'Documentation and examples for adding ZiON-v6.1.0 tooltips with CSS and JavaScript using CSS3 for animations and data-attributes for local title storage.',
+      url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/components/tooltips/`,
+      linkText: 'Tooltips on Bootstrap'
+    }
+ 
+block component
+  +PageHeader(pageHeader)
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Example')
+        +TooltipExampleDescription
+
+    .card-body.bg-light
+      +TooltipDemoDescription
+      +componentCard
+        +TooltipExampleDemo

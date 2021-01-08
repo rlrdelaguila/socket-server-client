@@ -1,0 +1,44 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Pagination
+
+append variables
+  - var firstParent = 'components'              
+  - var currentPage = 'pagination'
+  -
+    var pageHeader = {
+      title: 'Pagination',
+      description: "Documentation and examples for showing pagination to indicate a series of related content exists across multiple pages.",
+      url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/components/pagination/`,
+      linkText: 'Pagination on Bootstrap'
+    }
+
+block component
+  +PageHeader(pageHeader)
+    
+  .row.g-0
+    .col-xl-6.pr-xl-2
+      .card.mb-3
+        .card-header
+          +DocCardHeader('Example with text')
+        .card-body.bg-light
+          +componentCard
+            +PaginationTextDemo
+    .col-xl-6.pl-xl-2
+      .card.mb-3
+        .card-header
+          +DocCardHeader('Example with icon')
+        .card-body.bg-light
+          +componentCard
+            +PaginationIconDemo
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Sizing')
+        +PaginationSizingDescription.mt-2.mb-0
+    .card-body.bg-light
+      +componentCard
+          +PaginationSizingDdemo.pagination-lg
+          +PaginationSizingDdemo
+          +PaginationSizingDdemo.pagination-sm
+        
+                
+        

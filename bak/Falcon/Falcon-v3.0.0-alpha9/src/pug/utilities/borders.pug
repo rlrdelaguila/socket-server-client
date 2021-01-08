@@ -1,0 +1,72 @@
+extends ../layouts/LayoutComponent
+include ../mixins/utilities/Borders
+
+append variables
+  - var firstParent = 'utilities'
+  - var currentPage = 'borders'
+  -
+    var pageHeader = {
+      title: 'Borders',
+      description: 'Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons, or any other element.',
+      url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/utilities/borders/`,
+      linkText: 'Borders on Bootstrap'
+    }
+
+append content
+  +PageHeader(pageHeader)
+  .card.mb-3
+    .card-header
+      +DocCardHeader('Border')
+    .card-body.bg-light
+      +BorderDoc
+
+  .row.g-0.border-component
+    .col-xl-6.pr-xl-2
+      .card.mb-3
+        .card-header
+          +DocCardHeader('Additive')
+        .card-body.bg-light
+          +componentCard
+            +BorderAdditive
+        = '\n'
+    .col-xl-6.pl-xl-2
+      .card.mb-3
+        .card-header
+          +DocCardHeader('Subtractive')
+        .card-body.bg-light
+          +componentCard
+            +BorderSubtractive
+
+  .card.mb-3.border-component
+    .card-header
+      +BorderRadiusHeader
+    .card-body.bg-light
+      +componentCard
+        +BorderRadius
+      = '\n'
+      +BorderRadiusSizeDescription.mt-4
+      +componentCard
+        +BorderRadiusSizeDemo
+  .card.mb-3.border-component
+    .card-header
+      +BorderStyleHeader
+    .card-body.bg-light
+      +componentCard
+        +BorderStyle
+
+  .card.border-component.mb-3
+    .card-header
+      +DocCardHeader('Border Width')
+      +BorderWidthDoc.mt-2.mb-0
+    .card-body.bg-light
+      +componentCard
+        +BorderWidth
+
+  .card.border-component
+    .card-header
+      +DocCardHeader('Border Color')
+      +BorderColorWidthDoc
+
+    .card-body.bg-light
+      +componentCard
+        +BorderColorWidth

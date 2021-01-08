@@ -1,0 +1,26 @@
+mixin WizardHeader
+  ul.nav.justify-content-between.nav-wizard
+    li.nav-item
+      a(href='#bootstrap-wizard-tab1' data-toggle='tab').nav-link.active.font-weight-semi-bold
+        span.nav-item-circle-parent
+          span.nav-item-circle
+            span.fas.fa-lock
+        span.d-none.d-md-block.mt-1.fs--1 Account
+    li.nav-item
+      a(href='#bootstrap-wizard-tab2' data-toggle='tab').nav-link.font-weight-semi-bold
+        span.nav-item-circle-parent
+          span.nav-item-circle
+            span.fas.fa-user
+        span.d-none.d-md-block.mt-1.fs--1 Personal
+    li.nav-item
+      a(href='#bootstrap-wizard-tab3' data-toggle='tab').nav-link.font-weight-semi-bold
+        span.nav-item-circle-parent
+          span.nav-item-circle
+            span.fas.fa-dollar-sign
+        span.d-none.d-md-block.mt-1.fs--1 Billing
+    li.nav-item
+      a(href='#bootstrap-wizard-tab4' data-toggle='tab').nav-link.font-weight-semi-bold
+        span.nav-item-circle-parent
+          span.nav-item-circle
+            span.fas.fa-thumbs-up
+        span.d-none.d-md-block.mt-1.fs--1 Done

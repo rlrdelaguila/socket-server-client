@@ -1,0 +1,148 @@
+mixin NavbarStyle(config)
+  input.btn-check(
+    id=config.id
+    type='radio' 
+    name='navbarStyle' 
+    checked=config.isChecked
+    data-page-url=config.url
+    value=config.value
+    disabled=false
+  )
+  label.btn.btn-block.btn-navbar-style.fs--1(for=config.id) 
+    img.img-fluid.img-prototype(src=`${CWD}assets/img/generic/${config.img}.png`, alt="")
+    span.label-text 
+      +cleanText(config.value)
+
+mixin SettingsPanel
+  #settings-modal.modal.fade.modal-fixed-right.modal-theme.overflow-hidden(tabindex='-1' role='dialog' aria-labelledby='settings-modal-label' aria-hidden='true' data-options!={autoShow: true, autoShowDelay: 3000, showOnce: true })
+    .modal-dialog.modal-dialog-vertical(role='document')
+      .modal-content.border-0.vh-100.scrollbar
+        .modal-header.modal-header-settings
+          .z-index-1.py-1
+            h5#settings-modal-label.text-white 
+              span.fas.fa-palette.mr-2.fs-0
+              | Settings
+            p.mb-0.fs--1.text-white.opacity-75  Set your own customized style
+          button.btn-close.btn-close-white.z-index-1.mt-0(type='button' data-dismiss='modal' aria-label='Close')
+
+        .modal-body.px-card
+          .d-flex.justify-content-between
+            - var isRTLPage = firstParent === 'documentation' && currentPage === 'RTL' ? true : false
+            - var RTLPageUrl = ENV !== 'PROD' ? `${CWD}documentation/RTL.html` : false; 
+            - var homeUrl = ENV !== 'PROD' ? `${CWD}index.html` : false;    
+            - var isDemoRTLPage = firstParent === 'demo' && currentPage === 'RTL' ? true : false            
+            .d-flex.align-items-start
+              img(src=`${CWD}assets/img/icons/left-arrow-from-left.svg`, width=20 alt="").mr-2
+              .flex-1
+                h5.fs-0 RTL Mode
+                p.fs--1.mb-0 Switch your language direction 
+            .form-check.form-switch
+              input#mode-rtl.form-check-input.ml-0(type='checkbox' disabled=isDemoRTLPage checked=isRTLPage data-home-url=homeUrl data-page-url=RTLPageUrl)
+
+          if isDemoRTLPage 
+            p.text-warning.fs--1.pl-4.mt-1 You cann't toggle RTL layout mode in an example page
+
+          hr
+
+          .d-flex.justify-content-between
+            - var isFluidPage = firstParent === 'documentation' && currentPage === 'fluid-layout' ? true : false;
+            - var fluidPageUrl = ENV !== 'PROD' ? `${CWD}documentation/fluid-layout.html` : false;
+            - var isDemoFluidPage = firstParent === 'demo' && currentPage === 'fluid' ? true : false;
+            - var isKanbanPage =  ENV === 'PROD' && currentPage === 'kanban' ? true: false;
+            - var isDisabled = isDemoFluidPage || isKanbanPage;
+            .d-flex.align-items-start
+              img(src=`${CWD}assets/img/icons/arrows-h.svg`, width=20 alt="").mr-2
+              .flex-1
+                h5.fs-0 Fluid Layout
+                p.fs--1.mb-0 Toggle container layout system 
+            .form-check.form-switch
+              input#mode-fluid.form-check-input.ml-0(type='checkbox' disabled=isDisabled checked=isFluidPage data-home-url=homeUrl data-page-url=fluidPageUrl)
+
+          if isDemoFluidPage 
+            p.text-warning.fs--1.pl-4.mt-1 You cann't toggle fluid layout mode in an example page
+
+          if isKanbanPage
+            p.text-warning.fs--1.pl-4.mt-1 You cann't toggle fluid layout mode in Kanban page
+
+          hr
+          .d-flex.align-items-start
+            img(src=`${CWD}assets/img/icons/paragraph.svg`, width=20 alt="").mr-2
+            .flex-1
+              - var checkNavbarTopPage = ENV !== 'PROD' ? secondParent === 'navbar' && currentPage === 'top' ? true : false : false;
+              - var checkNavbarComboPage = ENV !== 'PROD' ? secondParent === 'navbar' && currentPage === 'combo' ? true : false : false;
+              - var navbarVerticalPageUrl = ENV !== 'PROD' ? `${CWD}components/navbar/vertical.html` : false;
+              - var navbarTopPageUrl = ENV !== 'PROD' ? `${CWD}components/navbar/top.html` : false;
+              - var navbarComboPageUrl = ENV !== 'PROD' ? `${CWD}components/navbar/combo.html` : false;
+              - var isLiveNavbarTop = ENV === 'PROD' && currentPage === 'navbar-top' ? true : false;
+              - var isLiveNavbarCombo = ENV === 'PROD' && currentPage === 'combo-nav' ? true : false;
+              h5.fs-0.d-flex.align-items-center Navigation Position 
+              p.fs--1.mb-2 Select a suitable navigation system for your web application 
+              if isLiveNavbarTop || isLiveNavbarCombo
+                p.text-warning.fs--1 You cann't update navigation position in an example page
+              .form-check.form-check-inline
+                input#option-navbar-vertical.form-check-input(type='radio' name='navbar' value="vertical" checked=!checkNavbarTopPage && !checkNavbarComboPage data-page-url=navbarVerticalPageUrl disabled=isLiveNavbarTop || isLiveNavbarCombo ? true : false)
+                label.form-check-label(for='option-navbar-vertical') Vertical
+              .form-check.form-check-inline
+                input#option-navbar-top.form-check-input(type='radio' name='navbar' value="top" checked=checkNavbarTopPage data-page-url=navbarTopPageUrl disabled=isLiveNavbarTop || isLiveNavbarCombo ? true : false)
+                label.form-check-label(for='option-navbar-top') Top
+              .form-check.form-check-inline.mr-0
+                input#option-navbar-combo.form-check-input(type='radio' name='navbar' value="combo" checked=checkNavbarComboPage data-page-url=navbarComboPageUrl disabled=isLiveNavbarTop || isLiveNavbarCombo ? true : false)
+                label.form-check-label(for='option-navbar-combo') Combo
+          hr          
+
+          - var navbarVerticalInverted = ENV !== 'PROD' ? currentPage === 'navbar-vertical-inverted' ? true : false : false;
+          - var navbarVerticalVibrant = ENV !== 'PROD' ? currentPage === 'navbar-vertical-vibrant' ? true : false : false;
+          - var navbarVerticalCard = ENV !== 'PROD' ? currentPage === 'navbar-vertical-card' ? true : false : false;
+          - var navbarVerticalInvertedUrl = ENV !== 'PROD' ? `${CWD}demo/navbar-vertical-inverted.html` : false;
+          - var navbarVerticalVibrantUrl = ENV !== 'PROD' ? `${CWD}demo/navbar-vertical-vibrant.html` : false;
+          - var navbarVerticalCardUrl = ENV !== 'PROD' ? `${CWD}demo/navbar-vertical-card.html` : false;
+          - var navbarVerticalTransparent = ENV !== 'PROD' ? (!navbarVerticalInverted && !navbarVerticalVibrant && !navbarVerticalCard) : false; 
+
+          h5.fs-0.d-flex.align-items-center Vertical Navbar Style
+          p.fs--1 Switch between styles for your vertical navbar 
+          if isLiveNavbarTop
+            p.text-warning.fs--1 You cann't change navbar vertical style in an example page
+
+          .btn-group.btn-block.btn-group-navbar-style
+            .row.gx-2
+              .col-6
+                +NavbarStyle({
+                  id: 'navbar-style-transparent',
+                  img: 'default',
+                  isChecked: navbarVerticalTransparent,
+                  url: homeUrl,
+                  value: 'transparent',
+                  disabled: isLiveNavbarTop
+                })
+              .col-6
+                +NavbarStyle({
+                  id: 'navbar-style-inverted',
+                  img: 'inverted',
+                  isChecked: navbarVerticalInverted,
+                  url: navbarVerticalInvertedUrl,
+                  value: 'inverted',
+                  disabled: isLiveNavbarTop
+                })
+              .col-6
+                +NavbarStyle({
+                  id: 'navbar-style-card',
+                  img: 'card',
+                  isChecked: navbarVerticalCard,
+                  url: navbarVerticalCardUrl,
+                  value: 'card',
+                  disabled: isLiveNavbarTop
+                })
+              .col-6
+                +NavbarStyle({
+                  id: 'navbar-style-vibrant',
+                  img: 'vibrant',
+                  isChecked: navbarVerticalVibrant,
+                  url: navbarVerticalVibrantUrl,
+                  value: 'vibrant',
+                  disabled: isLiveNavbarTop
+                })
+          .text-center.mt-5
+            img(src=`${CWD}assets/img/illustrations/settings.png`, alt="" width=120).mb-4
+            h5 Like What You See?
+            p.fs--1 Get #{name} now and create beautiful dashboards with hundreds of widgets.
+            a(href="https://themes.getbootstrap.com/product/falcon-admin-dashboard-webapp-template/" target="_blank").btn.btn-primary Purchase

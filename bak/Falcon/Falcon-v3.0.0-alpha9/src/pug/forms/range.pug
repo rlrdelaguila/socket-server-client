@@ -1,0 +1,39 @@
+extends ../layouts/LayoutComponent
+include ../mixins/forms/Range
+
+append variables
+  - var firstParent = 'forms'              
+  - var currentPage = 'range'
+  -
+    var pageHeader = {
+      title: 'Range',
+      description: 'Use our custom range inputs for consistent cross-browser styling and built-in customization.',
+      url: `https://v5.getbootstrap.com/docs/${bootstrapVersion}/forms/range`,
+      linkText: 'Range on Bootstrap'
+    }
+block component
+  +PageHeader(pageHeader)
+
+  .card.mb-3
+    .card-header 
+      +DocCardHeader('Overview')
+        +OverviewText
+    .card-body.bg-light
+      +componentCard
+        +ExampleRange
+
+  .card.mb-3
+    .card-header 
+      +DocCardHeader('Min and max')
+        +MinMaxtext
+    .card-body.bg-light
+      +componentCard
+        +MinMaxrange
+
+  .card.mb-3
+    .card-header 
+      +DocCardHeader('Steps')
+        +StepsText
+    .card-body.bg-light
+      +componentCard
+        +StepsRange

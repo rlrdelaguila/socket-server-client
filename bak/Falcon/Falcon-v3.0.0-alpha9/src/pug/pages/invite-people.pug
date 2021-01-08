@@ -1,0 +1,16 @@
+extends ../layouts/LayoutTheme
+include ../mixins/pages/InvitePeople
+
+
+append variables
+  - var CWD = '../'
+  - var firstParent = 'pages'
+  - var currentPage = 'invite-people'
+
+append content
+  +InvitePeople({
+    titleClass: 'mt-md-4 fs-md-3',
+    buttonClass: 'mb-xl-0',
+    brClass: 'd-none d-md-block',
+    footerTitleClass: 'fs-md-2'
+  })

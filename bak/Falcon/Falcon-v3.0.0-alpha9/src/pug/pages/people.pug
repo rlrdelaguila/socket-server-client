@@ -1,0 +1,11 @@
+extends ../layouts/LayoutTheme
+include ../mixins/common/Media
+include ../mixins/pages/profile/Members
+
+append variables
+  - var CWD = '../'
+  - var firstParent = 'pages'
+  - var currentPage = 'people'
+
+append content
+  +Members({end: 24})

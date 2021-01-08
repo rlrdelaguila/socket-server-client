@@ -1,0 +1,32 @@
+extends ../layouts/LayoutComponent
+include ../mixins/components/Sidepanel
+
+append variables
+  - var firstParent = 'components'              
+  - var currentPage = 'sidepanel'
+  -
+    var pageHeader = {
+      title: 'Sidepanel',
+      description: `You can show lists, forms, notifications, or other custom contents into the ${name} Sidepanel`,
+    }
+ 
+append content
+  +PageHeader(pageHeader)
+    a(href=`#settings-modal` data-toggle="modal").btn.btn-link.pl-0.btn-sm  Show Sidepanel
+      span.fas.fa-chevron-right.ml-1.fs--2
+
+  .card.mb-3
+    .card-header  
+      +DocCardHeader('Structure')
+        +SidepanelStructureDescription.mt-2.mb-0
+    .card-body.bg-light
+      +componentCardLib
+        +SidepanelHTML
+  
+  .card
+    .card-header  
+      +DocCardHeader('Options')
+        +SidepanelOptionsDescription.mt-2.mb-0
+        
+    .card-body.bg-light
+      +SidepanelOptionsDocumentation.table-bordered.border.border-200.fs--1
