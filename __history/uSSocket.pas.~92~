@@ -36,6 +36,7 @@ type
     LimparLog2: TMenuItem;
     Panel3: TPanel;
     Panel4: TPanel;
+    Splitter1: TSplitter;
     procedure btnClientClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
     procedure reLogChange(Sender: TObject);
@@ -57,6 +58,7 @@ type
     procedure btnMessage2Click(Sender: TObject);
     procedure btnMessage3Click(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure sSocketThreadEnd(Sender: TObject; Thread: TServerClientThread);
   private
     { Private declarations }
   public
@@ -74,6 +76,8 @@ implementation
 uses uCSocket, uSMessage;
 
 procedure TfServer.btnServerClick(Sender: TObject);
+var
+  i: Integer;
 begin
   if length(edtPort.Text) > 0 then
   begin
@@ -92,6 +96,12 @@ begin
     end
     else
     begin
+      for i := 0 to sSocket.Socket.ActiveConnections - 1 do
+        sSocket.Socket.Connections[i].Close;
+
+      lbClients.Items.Clear;
+      lbClients.Items.Add('Clients Connecteds...');
+
       sSocket.Active := False;
       edtIP.Text := '';
       edtPort.ReadOnly := False;
@@ -127,12 +137,8 @@ begin
   // if Assigned(fCLient) then
   // fCLient.Free;
 
-  //fCLient := TfCLient.Create(nil);
-  //fCLient.Show;
-
-  Application.CreateForm(TfCLient, fCLient);
-  fCLient.ShowModal;
-  fCLient.Release;
+  fCLient := TfCLient.Create(nil);
+  fCLient.Show;
 end;
 
 procedure TfServer.btnCloseClick(Sender: TObject);
@@ -232,6 +238,12 @@ begin
   status.Panels.Items[1].Text := 'Server UP';
 end;
 
+procedure TfServer.sSocketThreadEnd(Sender: TObject;
+  Thread: TServerClientThread);
+begin
+  log('teste', clGreen);
+end;
+
 procedure TfServer.lbClientsDblClick(Sender: TObject);
 begin
   if lbClients.ItemIndex > 0 then
@@ -283,7 +295,7 @@ procedure TfServer.log(str: String; color: TColor);
 begin
   reLog.SelAttributes.color := color;
   application.ProcessMessages;
-  reLog.Lines.Add(FormatDateTime('dd.mm.yy hh:MM:ss - ', Now) + str);
+  reLog.Lines.Add(FormatDateTime('dd.mm.yy hh:MM:ss:zzz - ', Now) + str);
 end;
 
 end.

@@ -15,6 +15,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.Title := 'Socket Server';
   Application.CreateForm(TfServer, fServer);
-  TStyleManager.TrySetStyle('Emerald Light Slate');
+  TStyleManager.TrySetStyle('Smokey Quartz Kamri');
   Application.Run;
 end.

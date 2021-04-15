@@ -286,6 +286,7 @@ end;
 
 procedure TfServer.LimparLog2Click(Sender: TObject);
 begin
+  reLog.PlainText := True;
   reLog.Lines.SaveToFile(getCurrentDir + '\logServer.txt');
   ShowMessage
     ('Arquivo salvo como ''logServer.txt'' no mesmo diretório do programa');

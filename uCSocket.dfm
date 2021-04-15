@@ -39,7 +39,7 @@ object fClient: TfClient
       end
       item
         Alignment = taRightJustify
-        Text = 'Raul del Aguila - up 2.0 (20/07/2020)'
+        Text = 'Raul del Aguila - up 1.01 (15/04/2021)'
         Width = 50
       end>
   end

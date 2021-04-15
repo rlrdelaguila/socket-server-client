@@ -600,7 +600,7 @@ object fServer: TfServer
       end
       item
         Alignment = taRightJustify
-        Text = 'Raul del Aguila - up 2.0 (20/07/2020)'
+        Text = 'Raul del Aguila - up 2.0 (15/04/2021)'
         Width = 50
       end>
   end

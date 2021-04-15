@@ -16,6 +16,7 @@ object fServer: TfServer
   Font.Style = []
   OldCreateOrder = False
   Position = poMainFormCenter
+  OnClose = FormClose
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
@@ -342,6 +343,12 @@ object fServer: TfServer
     Align = alClient
     BevelOuter = bvNone
     TabOrder = 1
+    object Splitter1: TSplitter
+      Left = 129
+      Top = 57
+      Width = 1
+      Height = 216
+    end
     object gpServer: TGroupBox
       AlignWithMargins = True
       Left = 1
@@ -529,9 +536,9 @@ object fServer: TfServer
     end
     object reLog: TRichEdit
       AlignWithMargins = True
-      Left = 130
+      Left = 131
       Top = 58
-      Width = 539
+      Width = 538
       Height = 214
       Margins.Left = 1
       Margins.Top = 1
@@ -593,7 +600,7 @@ object fServer: TfServer
       end
       item
         Alignment = taRightJustify
-        Text = 'Raul del Aguila - up 2.0 (20/07/2020)'
+        Text = 'Raul del Aguila - up 2.0 (15/04/2021)'
         Width = 50
       end>
   end
@@ -602,6 +609,7 @@ object fServer: TfServer
     Port = 0
     ServerType = stNonBlocking
     OnListen = sSocketListen
+    OnThreadEnd = sSocketThreadEnd
     OnClientConnect = sSocketClientConnect
     OnClientDisconnect = sSocketClientDisconnect
     OnClientRead = sSocketClientRead

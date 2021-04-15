@@ -249,6 +249,7 @@ end;
 
 procedure TfClient.LimparLog2Click(Sender: TObject);
 begin
+  reLog.PlainText := True;
   reLog.Lines.SaveToFile(getCurrentDir + '\logClient.txt');
   ShowMessage
     ('Arquivo salvo como ''logClient.txt'' no mesmo diretório do programa');
